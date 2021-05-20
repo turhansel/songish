@@ -6,7 +6,7 @@ import Header from "../components/Header";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
+    <div className="bg-[#dfe9f2] bg-opacity-50">
       <Head>
         <title>Song Catalog</title>
       </Head>
@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }) {
       <div className="grid wrapper">
         <Component {...pageProps} />
       </div>
-    </>
+    </div>
   );
 }
 

@@ -3,48 +3,35 @@ import dbConnect from "../utils/dbConnect";
 import Song from "../models/Song";
 
 const Index = ({ songs }) => (
-  <>
-    {/* Create a card for each pet */}
+  <div className="px-24 py-8 max-w-5xl flex items-center justify-center space-x-5">
     {songs.map((song) => (
-      <div key={song._id}>
-        <div className="card">
-          <img src={song.image_url} />
-          <h5 className="pet-name">{song.name}</h5>
-          <div className="main-content">
-            <p className="pet-name">{song.name}</p>
-            <p className="owner">Owner: {song.owner_name}</p>
-
-            {/* Extra Pet Info: Likes and Dislikes */}
-            <div className="likes info">
-              <p className="label">Likes</p>
-              <ul>
-                {song.likes.map((data, index) => (
-                  <li key={index}>{data} </li>
-                ))}
-              </ul>
-            </div>
-            <div className="dislikes info">
-              <p className="label">Dislikes</p>
-              <ul>
-                {song.dislikes.map((data, index) => (
-                  <li key={index}>{data} </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="btn-container">
-              <Link href="/[id]/edit" as={`/${song._id}/edit`}>
-                <button className="btn edit">Edit</button>
-              </Link>
-              <Link href="/[id]" as={`/${song._id}`}>
-                <button className="btn view">View</button>
-              </Link>
-            </div>
+      <div
+        key={song._id}
+        className="max-w-xs rounded overflow-hidden shadow-lg my-2"
+      >
+        <h1>{song.category}</h1>
+        <Link href="/[id]" as={`/${song._id}`}>
+          <a>
+            <img src={song.image_url} alt={song.name} className="max-w-18" />
+          </a>
+        </Link>
+        <div className="px-6 py-4">
+          <div className="font-bold text-xl mb-2">{song.name}</div>
+          <p className="text-grey-darker text-base">{song.artist_name}</p>
+        </div>
+        <div className="px-6 py-4">
+          <div className="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2">
+            {song.difficulty}
+          </div>
+          <div className="">
+            <Link href="/[id]/edit" as={`/${song._id}/edit`}>
+              <button className="btn edit">Edit</button>
+            </Link>
           </div>
         </div>
       </div>
     ))}
-  </>
+  </div>
 );
 
 /* Retrieves pet(s) data from mongodb database */
@@ -55,7 +42,7 @@ export async function getServerSideProps() {
   const result = await Song.find({});
   const songs = result.map((doc) => {
     const song = doc.toObject();
-    song._id = song._id.toString();
+    song._id = song._id.toLocaleString();
     return song;
   });
 

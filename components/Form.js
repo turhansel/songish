@@ -71,8 +71,8 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
 
   const handleChange = (e) => {
     const target = e.target;
-    // const value =
-    //   target.name === "poddy_trained" ? target.checked : target.value;
+    const value =
+      target.name === "poddy_trained" ? target.checked : target.value;
     const name = target.name;
 
     setForm({
@@ -91,7 +91,6 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
     }
   };
 
-  /* Makes sure pet info is filled for pet name, owner name, species, and image url*/
   const formValidate = () => {
     let err = {};
     if (!form.name) err.name = "Name is required";
@@ -110,7 +109,7 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
         <label htmlFor="name">Title</label>
         <input
           type="text"
-          maxLength="20"
+          maxLength="50"
           name="name"
           value={form.name}
           onChange={handleChange}

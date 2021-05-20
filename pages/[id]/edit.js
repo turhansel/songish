@@ -7,27 +7,27 @@ const fetcher = (url) =>
     .then((res) => res.json())
     .then((json) => json.data);
 
-const EditPet = () => {
+const EditSong = () => {
   const router = useRouter();
   const { id } = router.query;
-  const { data: pet, error } = useSWR(id ? `/api/pets/${id}` : null, fetcher);
+  const { data: song, error } = useSWR(id ? `/api/songs/${id}` : null, fetcher);
 
   if (error) return <p>Failed to load</p>;
-  if (!pet) return <p>Loading...</p>;
+  if (!song) return <p>Loading...</p>;
 
   const songForm = {
-    name: pet.name,
-    owner_name: pet.owner_name,
-    species: pet.species,
-    age: pet.age,
-    poddy_trained: pet.poddy_trained,
-    diet: pet.diet,
-    image_url: pet.image_url,
-    likes: pet.likes,
-    dislikes: pet.dislikes,
+    name: song.name,
+    artist_name: song.artist_name,
+    difficulty: song.difficulty,
+    category: song.category,
+    description: song.description,
+    image_url: song.image_url,
+    song_url: song.song_url,
   };
 
-  return <Form formId="edit-pet-form" songForm={songForm} forNewSong={false} />;
+  return (
+    <Form formId="edit-song-form" songForm={songForm} forNewSong={false} />
+  );
 };
 
-export default EditPet;
+export default EditSong;
