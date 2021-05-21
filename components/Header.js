@@ -28,7 +28,7 @@ const Header = () => {
                         />
                       </div>
                       <div className="hidden md:block ">
-                        <h1 className="text-4xl">Fretello</h1>
+                        {/* <h1 className="text-4xl">Fretello</h1> */}
                       </div>
                     </div>
                   </a>
@@ -42,7 +42,7 @@ const Header = () => {
                     </Link>
                     <Link href="/new">
                       <a className="bg-[#f8c35e] text-gray-700 p-3 rounded-full text-xl ">
-                        Add Song
+                        Create Song
                       </a>
                     </Link>
                   </div>
@@ -71,7 +71,7 @@ const Header = () => {
                 </Link>
                 <Link href="/new">
                   <a className="text-gray-700 bg-[#f8c35e] p-3 rounded-full text-lg ">
-                    Add Song
+                    Create Song
                   </a>
                 </Link>
               </div>

@@ -9,6 +9,7 @@
   "dependencies": {
     "@headlessui/react": "^1.2.0",
     "@heroicons/react": "^1.0.1",
+    "@lottiefiles/lottie-player": "^1.0.4",
     "install": "^0.13.0",
     "mongoose": "^5.9.13",
     "next": "latest",
