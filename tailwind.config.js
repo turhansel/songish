@@ -8,6 +8,9 @@ module.exports = {
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
       },
+      backgroundImage: (theme) => ({
+        "hero-banner": "url('/images/search-banner.jpg')",
+      }),
     },
   },
   variants: {
