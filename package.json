@@ -15,6 +15,7 @@
     "next": "latest",
     "npm": "^7.13.0",
     "react": "^16.13.1",
+    "react-datepicker": "^3.8.0",
     "react-dom": "^16.13.1",
     "swr": "0.2.2"
   },

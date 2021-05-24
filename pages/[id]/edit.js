@@ -23,6 +23,7 @@ const EditSong = () => {
     description: song.description,
     image_url: song.image_url,
     song_url: song.song_url,
+    date: song.date,
   };
 
   return (

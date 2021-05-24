@@ -20,9 +20,6 @@ const SongSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please enter category."],
   },
-  description: {
-    type: String,
-  },
   image_url: {
     required: [true, "Please provide an image url for this song."],
     type: String,
@@ -31,6 +28,11 @@ const SongSchema = new mongoose.Schema({
     required: [true, "Please add an image url for this song."],
     type: String,
   },
+  description: {
+    required: true,
+    type: String,
+  },
+  date: { type: Date, required: true },
 });
 
 export default mongoose.models.Song || mongoose.model("Song", SongSchema);

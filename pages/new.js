@@ -3,14 +3,13 @@ import Form from "../components/Form";
 const NewSong = () => {
   const songForm = {
     name: "",
-    owner_name: "",
-    species: "",
-    age: 0,
-    poddy_trained: false,
-    diet: [],
+    artist_name: "",
+    difficulty: "",
+    category: "",
     image_url: "",
-    likes: [],
-    dislikes: [],
+    song_url: "",
+    description: "",
+    date: new Date(),
   };
 
   return <Form formId="add-song-form" songForm={songForm} />;

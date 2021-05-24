@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { mutate } from "swr";
 
+import Lottie from "../components/Lottie";
+
 const Form = ({ formId, songForm, forNewSong = true }) => {
   const router = useRouter();
   const contentType = "application/json";
@@ -16,7 +18,24 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
     description: songForm.description,
     image_url: songForm.image_url,
     song_url: songForm.song_url,
+    date: songForm.date,
   });
+
+  const [categories, setCategories] = useState([
+    "",
+    "Women That Rock",
+    "Iconic Rock Guitar Riffs",
+    "4 Chords Songs",
+    "Funky Grooves",
+    "Chill Chords",
+  ]);
+
+  const [difficulties, setDifficulties] = useState([
+    "",
+    "Easy",
+    "Medium",
+    "Expert",
+  ]);
 
   /* The PUT method edits an existing entry in the mongodb database. */
   const putData = async (form) => {
@@ -104,19 +123,39 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
   };
 
   return (
-    <>
-      <form id={formId} onSubmit={handleSubmit}>
-        <label htmlFor="name">Title</label>
+    <div className="flex flex-row justify-evenly max-w-7xl xs:flex-col">
+      <div className="text-left px-36">
+        <Lottie
+          design={{ width: "500px", height: "500px" }}
+          animationData="https://assets7.lottiefiles.com/packages/lf20_70lckodc.json"
+        />
+      </div>
+      <form id={formId} onSubmit={handleSubmit} className="flex flex-col">
+        <div className="flex flex-col items-center justify-center">
+          <Lottie
+            design={{ width: "100px", height: "100px" }}
+            animationData="https://assets5.lottiefiles.com/packages/lf20_li0pgakp.json"
+          />
+          <h1 className="text-gray-600 font-bold md:text-2xl text-xl">
+            Create Song
+          </h1>
+        </div>
+
+        <label htmlFor="name" className="form-label">
+          Song Title
+        </label>
         <input
           type="text"
-          maxLength="50"
           name="name"
           value={form.name}
           onChange={handleChange}
           required
+          className="form-input"
         />
 
-        <label htmlFor="owner_name">artist_name</label>
+        <label htmlFor="artist_name" className="form-label">
+          Artist Name
+        </label>
         <input
           type="text"
           maxLength="20"
@@ -124,43 +163,59 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
           value={form.artist_name}
           onChange={handleChange}
           required
+          className="form-input"
         />
 
-        <label htmlFor="species">difficulty</label>
-        <input
+        <label htmlFor="difficulty" className="form-label">
+          Difficulty
+        </label>
+        <select
           type="text"
           maxLength="30"
           name="difficulty"
           value={form.difficulty}
           onChange={handleChange}
           required
-        />
+          className="form-input"
+        >
+          {difficulties.map((difficult) => (
+            <option>{difficult}</option>
+          ))}
+        </select>
 
-        <label htmlFor="age">category</label>
-        <input
+        <label htmlFor="category" className="form-label">
+          Category
+        </label>
+        <select
           type="text"
+          maxLength="30"
           name="category"
           value={form.category}
           onChange={handleChange}
-        />
-        <label htmlFor="age">description</label>
-        <input
-          type="text"
-          name="description"
-          value={form.description}
-          onChange={handleChange}
-        />
+          required
+          className="form-input"
+        >
+          {categories.map((category) => (
+            <option>{category}</option>
+          ))}
+        </select>
 
-        <label htmlFor="image_url">Image URL</label>
+        <label htmlFor="image_url" className="form-label">
+          Image URL
+        </label>
         <input
           type="url"
           name="image_url"
           value={form.image_url}
           onChange={handleChange}
           required
+          className="form-input"
         />
-        <label htmlFor="image_url">song_url </label>
+        <label htmlFor="image_url" className="form-label">
+          Song URL
+        </label>
         <input
+          className="form-input"
           type="url"
           name="song_url"
           value={form.song_url}
@@ -168,8 +223,35 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
           required
         />
 
-        <button type="submit" className="btn">
-          Submit
+        <label htmlFor="description" className="form-label">
+          Description
+        </label>
+        <textarea
+          className="form-input"
+          rows="4"
+          cols="50"
+          type="text"
+          name="description"
+          value={form.description}
+          onChange={handleChange}
+        />
+
+        <label htmlFor="date" className="form-label">
+          Date
+        </label>
+        <input
+          className="form-input"
+          type="date"
+          name="date"
+          value={form.date}
+          onChange={handleChange}
+        />
+
+        <button
+          type="submit"
+          className="w-auto bg-purple-400 hover:bg-purple-600 rounded-lg shadow-xl font-medium text-white px-6 py-2"
+        >
+          Create
         </button>
       </form>
       <p>{message}</p>
@@ -178,7 +260,7 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
           <li key={index}>{err}</li>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

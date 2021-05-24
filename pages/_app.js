@@ -1,8 +1,8 @@
 import "../css/style.css";
 import "../css/form.css";
 import Head from "next/head";
-import "tailwindcss/tailwind.css";
 import Header from "../components/Header";
+import "../styles/global.css";
 
 function MyApp({ Component, pageProps }) {
   return (

@@ -12,7 +12,11 @@ const Index = ({ songs }) => (
         <h1>{song.category}</h1>
         <Link href="/[id]" as={`/${song._id}`}>
           <a>
-            <img src={song.image_url} alt={song.name} className="max-w-18" />
+            <img
+              src={song.image_url}
+              alt={song.name}
+              className="w-full h-full object-cover"
+            />
           </a>
         </Link>
         <div className="px-6 py-4">

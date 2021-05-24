@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 
-const Lottie = (props) => {
+const Lottie = ({ design, animationData }) => {
   const ref = useRef(null);
   React.useEffect(() => {
     // for SSR
@@ -12,8 +12,8 @@ const Lottie = (props) => {
       autoplay
       loop
       mode="normal"
-      src={props.animationData}
-      style={props.design}
+      src={animationData}
+      style={design}
     ></lottie-player>
   );
 };
