@@ -18,7 +18,6 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
     description: songForm.description,
     image_url: songForm.image_url,
     song_url: songForm.song_url,
-    date: songForm.date,
   });
 
   const [categories, setCategories] = useState([
@@ -178,8 +177,8 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
           required
           className="form-input"
         >
-          {difficulties.map((difficult) => (
-            <option>{difficult}</option>
+          {difficulties.map((difficult, index) => (
+            <option key={index}>{difficult}</option>
           ))}
         </select>
 
@@ -195,8 +194,8 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
           required
           className="form-input"
         >
-          {categories.map((category) => (
-            <option>{category}</option>
+          {categories.map((category, index) => (
+            <option key={index}>{category}</option>
           ))}
         </select>
 
@@ -236,20 +235,9 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
           onChange={handleChange}
         />
 
-        <label htmlFor="date" className="form-label">
-          Date
-        </label>
-        <input
-          className="form-input"
-          type="date"
-          name="date"
-          value={form.date}
-          onChange={handleChange}
-        />
-
         <button
           type="submit"
-          className="w-auto bg-purple-400 hover:bg-purple-600 rounded-lg shadow-xl font-medium text-white px-6 py-2"
+          className="w-auto bg-purple-400 hover:bg-purple-600 rounded-lg shadow-xl font-medium text-white px-6 py-2 mt-3"
         >
           Create
         </button>

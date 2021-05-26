@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import dbConnect from "../../utils/dbConnect";
 import Song from "../../models/Song";
+import ReactPlayer from "react-player";
 
 const SongPage = ({ song }) => {
   const router = useRouter();
@@ -21,25 +22,41 @@ const SongPage = ({ song }) => {
   };
 
   return (
-    <div key={song._id}>
-      <div className="card">
-        <img src={song.image_url} />
-        <h5 className="pet-name">{song.name}</h5>
-        <div className="main-content">
-          <p className="pet-name">{song.name}</p>
-          <p className="owner">Owner: {song.owner_name}</p>
+    <div key={song._id} className="contain">
+      <div className=" flex flex-col py-10">
+        <div className="py-2 mb-5">
+          <h1 className="text-xl">
+            <span className="">Fretello </span>
+            <span> &gt; </span>
+            <span>Songs </span>
+            <span>&gt; </span>
+            <span>{song.name} </span>
+          </h1>
+          <h2 className="text-xl pt-3">{song.name}</h2>
+          <h3 className="text-md pt-1">by {song.artist_name}</h3>
+        </div>
+        <div>
+          <div className="flex flex-row justify-between">
+            <div>
+              <img src={song.image_url} className="max-w-[185px]" />
+              <div className="mt-7 space-x-10">
+                <Link href="/[id]/edit" as={`/${song._id}/edit`}>
+                  <button className="edit-button">Edit</button>
+                </Link>
+                <button className="delete-button" onClick={handleDelete}>
+                  Delete
+                </button>
+              </div>
 
-          <div className="btn-container">
-            <Link href="/[id]/edit" as={`/${song._id}/edit`}>
-              <button className="btn edit">Edit</button>
-            </Link>
-            <button className="btn delete" onClick={handleDelete}>
-              Delete
-            </button>
+              {message && <p>{message}</p>}
+            </div>
+            <div className="px-4 max-w-md text-left">
+              <p>{song.description}</p>
+            </div>
+            <ReactPlayer muted={true} controls url={song.song_url} />
           </div>
         </div>
       </div>
-      {message && <p>{message}</p>}
     </div>
   );
 };

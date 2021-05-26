@@ -32,7 +32,6 @@ const SongSchema = new mongoose.Schema({
     required: true,
     type: String,
   },
-  date: { type: Date, required: true },
 });
 
 export default mongoose.models.Song || mongoose.model("Song", SongSchema);
