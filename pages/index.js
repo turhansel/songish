@@ -7,8 +7,8 @@ const Home = ({ songs }) => {
   const [searchTerm, setSearchTerm] = useState("");
   return (
     <div>
-      <div className="bg-hero-banner px-96 py-28 bg-no-repeat bg-cover flex justify-center items-center">
-        <div className="flex flex-col justify-center items-center space-y-7 px-24">
+      <div className="bg-hero-banner w-screen h-[40vh] bg-no-repeat bg-cover flex justify-center items-center">
+        <div className="flex flex-col justify-center items-center space-y-7 ">
           <div>
             <h2 className="text-gray-600 text-4xl">Learn the songs you love</h2>
           </div>

@@ -123,10 +123,10 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
 
   return (
     <div className="flex flex-row justify-evenly max-w-7xl xs:flex-col">
-      <div className="text-left px-36">
+      <div className="text-left contain">
         <Lottie
-          design={{ width: "500px", height: "500px" }}
-          animationData="https://assets7.lottiefiles.com/packages/lf20_70lckodc.json"
+          design={{ width: "500px", height: "700px" }}
+          animationData="https://assets4.lottiefiles.com/packages/lf20_ydhm6y.json"
         />
       </div>
       <form id={formId} onSubmit={handleSubmit} className="flex flex-col">
