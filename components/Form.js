@@ -122,8 +122,8 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
   };
 
   return (
-    <div className="flex flex-row justify-evenly max-w-7xl xs:flex-col">
-      <div className="text-left contain">
+    <div className="flex flex-row justify-between my-0 mx-auto max-w-5xl xs:flex-col contain">
+      <div className="text-left  ">
         <Lottie
           design={{ width: "500px", height: "700px" }}
           animationData="https://assets4.lottiefiles.com/packages/lf20_ydhm6y.json"
