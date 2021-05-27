@@ -12,10 +12,13 @@ function classNames(...classes) {
 const Header = () => {
   return (
     <div>
-      <Disclosure as="nav" className="bg-gray-50">
+      <Disclosure
+        as="nav"
+        className="bg-indigo-50 backdrop-filter drop-shadow-sm  sticky top-0"
+      >
         {({ open }) => (
           <>
-            <div className="max-w-7xl mx-auto px-8 sm:px-6 lg:px-8 md:py-6 sm:py-4">
+            <div className="max-w-7xl mx-auto px-8 sm:px-6 lg:px-8 md:py-6 sm:py-4 	backdrop-filter drop-shadow-sm backdrop-blur-lg">
               <div className="flex items-center justify-between h-16">
                 <Link href="/">
                   <a>

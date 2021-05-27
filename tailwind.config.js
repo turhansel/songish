@@ -11,6 +11,7 @@ module.exports = {
       },
       backgroundImage: (theme) => ({
         "hero-banner": "url('/images/search-banner.jpg')",
+        "form-bg": "url('/images/bg-sea.png')",
       }),
     },
   },

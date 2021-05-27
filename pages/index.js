@@ -3,26 +3,35 @@ import dbConnect from "../utils/dbConnect";
 import Song from "../models/Song";
 import { useState } from "react";
 import Tilt from "react-tilt";
+import Lottie from "../components/Lottie";
 
 const Home = ({ songs }) => {
   const [searchTerm, setSearchTerm] = useState("");
   return (
     <div>
-      <div className="bg-hero-banner w-screen h-[40vh] bg-no-repeat bg-cover bg-center flex justify-center items-center bg-opacity-60">
-        <div className="flex flex-col justify-center items-center space-y-7 ">
-          <div>
-            <h2 className="text-gray-600 text-4xl bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
-              Learn the songs you love
-            </h2>
-          </div>
-          <div className="w-full">
-            <input
-              onChange={(e) => {
-                setSearchTerm(e.target.value);
-              }}
-              className="form-input rounded-full w-full"
-              placeholder="Search Song.."
+      <div className="bg-indigo-100 w-screen h-[45vh] bg-no-repeat bg-cover bg-center flex justify-center items-center bg-opacity-60">
+        <div className="flex items-center space-y-7 justify-evenly">
+          <div className="">
+            <Lottie
+              design={{ width: "500px", height: "500" }}
+              animationData="https://assets1.lottiefiles.com/temp/lf20_5c431k.json"
             />
+          </div>
+          <div className="flex flex-col space-y-3">
+            <div>
+              <h2 className="text-gray-600 text-4xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-green-400 font-bold">
+                Learn the songs you love
+              </h2>
+            </div>
+            <div className="w-full">
+              <input
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                }}
+                className="form-input rounded-full w-full"
+                placeholder="Search Song..."
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -64,16 +73,16 @@ const Home = ({ songs }) => {
                     {song.name}
                   </h4>
                   <p className="text-grey-darker text-gray-500">
-                    {song.artist_name}
+                    by {song.artist_name}
                   </p>
-                  <p className=" text-sm font-semibold text-red-400 mr-2">
+                  <p className=" text-sm font-semibold text-gray-500 mr-2">
                     {song.difficulty}
                   </p>
                 </div>
 
                 <div className="">
                   <Link href="/[id]/edit" as={`/${song._id}/edit`}>
-                    <button className="bg-green-200 md:px-16 sm:px-5 xs:px-5 rounded hover:bg-green-600 mt-3">
+                    <button className="bg-indigo-200 md:px-16 sm:px-5 xs:px-5 rounded hover:bg-indigo-400 mt-3">
                       Edit
                     </button>
                   </Link>
