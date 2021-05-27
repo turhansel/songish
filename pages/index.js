@@ -45,7 +45,7 @@ const Home = ({ songs }) => {
             <Tilt options={{ max: 25 }} key={song._id}>
               <div
                 key={song._id}
-                className="max-w-xs rounded-md overflow-hidden shadow-xl my-2 p-5 flex flex-col justify-center items-center mix-blend-multiply "
+                className="max-w-xs rounded-xl overflow-hidden blur-2xl shadow-xl my-2 p-5 flex flex-col justify-center items-center mix-blend-overlay	 bg-indigo-50"
               >
                 <div className="">
                   <h1>{song.category}</h1>
@@ -59,23 +59,24 @@ const Home = ({ songs }) => {
                     </a>
                   </Link>
                 </div>
-                <div className="flex flex-col items-start">
-                  <div className="font-semibold text-left text-[16px] mb-2 ">
+                <div className="flex flex-col md:w-10/12 text-left space-y-2">
+                  <h4 className="font-semibold text-[16px] mt-2">
                     {song.name}
-                  </div>
-                  <p className="text-grey-darker text-base">
+                  </h4>
+                  <p className="text-grey-darker text-gray-500">
                     {song.artist_name}
                   </p>
-                </div>
-                <div className="">
-                  <div className=" text-sm font-semibold text-grey-darker mr-2">
+                  <p className=" text-sm font-semibold text-red-400 mr-2">
                     {song.difficulty}
-                  </div>
-                  <div className="">
-                    <Link href="/[id]/edit" as={`/${song._id}/edit`}>
-                      <button className="btn edit">Edit</button>
-                    </Link>
-                  </div>
+                  </p>
+                </div>
+
+                <div className="">
+                  <Link href="/[id]/edit" as={`/${song._id}/edit`}>
+                    <button className="bg-green-200 md:px-16 sm:px-5 xs:px-5 rounded hover:bg-green-600 mt-3">
+                      Edit
+                    </button>
+                  </Link>
                 </div>
               </div>
             </Tilt>

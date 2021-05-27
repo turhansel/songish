@@ -26,9 +26,9 @@
     @apply my-0 mx-auto max-w-5xl;
   }
   .edit-button {
-    @apply p-3 bg-green-300 mr-4 rounded-full hover:bg-green-600 text-gray-700;
+    @apply p-3 bg-green-300  rounded-lg hover:bg-green-600 text-gray-700 px-5;
   }
   .delete-button {
-    @apply p-3 bg-red-300 mr-4 rounded-full hover:bg-red-500 text-gray-700;
+    @apply p-3 bg-red-300  rounded-lg hover:bg-red-500 text-gray-700;
   }
 }

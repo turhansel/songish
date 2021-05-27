@@ -121,6 +121,11 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
     return err;
   };
 
+  // if (!customElements.get("lottie-player")) {
+  //   customElements.define("lottie-player", HTMLTheElement);
+  // }
+  // This is for Uncaught DOMException
+
   return (
     <div className="flex flex-row justify-between my-0 mx-auto max-w-5xl xs:flex-col contain">
       <div className="text-left  ">

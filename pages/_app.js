@@ -7,10 +7,6 @@ function MyApp({ Component, pageProps }) {
     <div className="bg-[#dfe9f2] bg-opacity-50">
       <Head>
         <title>Song Catalog</title>
-        <link
-          rel="stylesheet"
-          href="https://video-react.github.io/assets/video-react.css"
-        />
       </Head>
       <Header />
       <div>
