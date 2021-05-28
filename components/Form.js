@@ -121,18 +121,15 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
     return err;
   };
 
-  // if (!customElements.get("lottie-player")) {
-  //   customElements.define("lottie-player", HTMLTheElement);
-  // }
-  // This is for Uncaught DOMException
+  const a = "{window.innerWidth > 768 ? '500px' : '300px'}";
 
   return (
-    <div className="bg-form-bg bg-cover">
-      <div className="flex md:flex-row justify-between sm:flex-col sm:flex-wrap contain mt-2">
+    <div className="bg-form-bg bg-cover md:h-screen">
+      <div className="flex md:flex-row justify-between sm:flex-col sm:flex-wrap contain">
         <div className="">
           <Lottie
-            design={{ width: "500px", height: "600px" }}
-            animationData="https://assets4.lottiefiles.com/packages/lf20_ydhm6y.json"
+            design={{ width: a, height: a }}
+            animationData="./lotties/form-guitar.json"
           />
         </div>
         <div className="">

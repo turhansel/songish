@@ -6,6 +6,8 @@ import Tilt from "react-tilt";
 import Lottie from "../components/Lottie";
 
 const Home = ({ songs }) => {
+  const a = "{window.innerWidth > 1200 ? '500px' : '100px'}";
+
   const [searchTerm, setSearchTerm] = useState("");
   return (
     <div>
@@ -13,11 +15,14 @@ const Home = ({ songs }) => {
         <div className="flex items-center space-y-7 justify-evenly">
           <div className="">
             <Lottie
-              design={{ width: "500px", height: "500" }}
-              animationData="https://assets1.lottiefiles.com/temp/lf20_5c431k.json"
+              design={{
+                width: a,
+                height: a,
+              }}
+              animationData="./lotties/guitar.json"
             />
           </div>
-          <div className="flex flex-col space-y-3">
+          <div className="flex flex-col space-y-3 sm:block">
             <div>
               <h2 className="text-gray-600 text-4xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-green-400 font-bold">
                 Learn the songs you love
