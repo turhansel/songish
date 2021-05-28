@@ -1,4 +1,5 @@
-import { useState } from "react";
+import Head from "next/head";
+import { Fragment, useState } from "react";
 import { useRouter } from "next/router";
 import { mutate } from "swr";
 
@@ -121,150 +122,156 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
     return err;
   };
 
-  const a = "{window.innerWidth > 768 ? '500px' : '300px'}";
+  const responsive = "{window.innerWidth > 768 ? '500px' : '300px'}";
 
   return (
-    <div className="bg-form-bg bg-cover md:h-screen">
-      <div className="flex md:flex-row justify-between sm:flex-col sm:flex-wrap contain">
-        <div className="">
-          <Lottie
-            design={{ width: a, height: a }}
-            animationData="./lotties/form-guitar.json"
-          />
-        </div>
-        <div className="">
-          <form id={formId} onSubmit={handleSubmit} className="flex flex-col">
-            <div className="flex flex-col items-center justify-center">
-              <Lottie
-                design={{ width: "100px", height: "100px" }}
-                animationData="https://assets5.lottiefiles.com/packages/lf20_li0pgakp.json"
+    <Fragment>
+      <Head>
+        <title>Create Song</title>
+      </Head>
+
+      <div className="bg-form-bg bg-cover md:h-screen">
+        <div className="flex md:flex-row justify-between sm:flex-col sm:flex-wrap contain">
+          <div className="">
+            <Lottie
+              design={{ width: responsive, height: responsive }}
+              animationData="/lotties/form-guitar.json"
+            />
+          </div>
+          <div className="">
+            <form id={formId} onSubmit={handleSubmit} className="flex flex-col">
+              <div className="flex flex-col items-center justify-center">
+                <Lottie
+                  design={{ width: "100px", height: "100px" }}
+                  animationData="/lotties/music.json"
+                />
+                <h1 className="text-gray-600 font-bold md:text-2xl text-xl">
+                  Create Song
+                </h1>
+              </div>
+              <div className="flex justify-between mt-2">
+                <div className="flex flex-col">
+                  <label htmlFor="name" className="form-label">
+                    Song Title
+                  </label>
+                  <input
+                    size="23"
+                    type="text"
+                    name="name"
+                    value={form.name}
+                    onChange={handleChange}
+                    required
+                    className="form-input"
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <label htmlFor="artist_name" className="form-label">
+                    Artist Name
+                  </label>
+                  <input
+                    size="23"
+                    type="text"
+                    maxLength="20"
+                    name="artist_name"
+                    value={form.artist_name}
+                    onChange={handleChange}
+                    required
+                    className="form-input"
+                  />
+                </div>
+              </div>
+              <div className="flex justify-between">
+                <div className="flex flex-col">
+                  <label htmlFor="difficulty" className="form-label">
+                    Difficulty
+                  </label>
+                  <select
+                    type="text"
+                    maxLength="30"
+                    name="difficulty"
+                    value={form.difficulty}
+                    onChange={handleChange}
+                    required
+                    className="form-input"
+                  >
+                    {difficulties.map((difficult, index) => (
+                      <option key={index}>{difficult}</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="flex flex-col">
+                  <label htmlFor="category" className="form-label">
+                    Category
+                  </label>
+                  <select
+                    type="text"
+                    maxLength="30"
+                    name="category"
+                    value={form.category}
+                    onChange={handleChange}
+                    required
+                    className="form-input"
+                  >
+                    {categories.map((category, index) => (
+                      <option key={index}>{category}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              <label htmlFor="image_url" className="form-label">
+                Image URL
+              </label>
+              <input
+                type="url"
+                name="image_url"
+                value={form.image_url}
+                onChange={handleChange}
+                required
+                className="form-input"
               />
-              <h1 className="text-gray-600 font-bold md:text-2xl text-xl">
-                Create Song
-              </h1>
-            </div>
-            <div className="flex justify-between mt-2">
-              <div className="flex flex-col">
-                <label htmlFor="name" className="form-label">
-                  Song Title
-                </label>
-                <input
-                  size="23"
-                  type="text"
-                  name="name"
-                  value={form.name}
-                  onChange={handleChange}
-                  required
-                  className="form-input"
-                />
-              </div>
-              <div className="flex flex-col">
-                <label htmlFor="artist_name" className="form-label">
-                  Artist Name
-                </label>
-                <input
-                  size="23"
-                  type="text"
-                  maxLength="20"
-                  name="artist_name"
-                  value={form.artist_name}
-                  onChange={handleChange}
-                  required
-                  className="form-input"
-                />
-              </div>
-            </div>
-            <div className="flex justify-between">
-              <div className="flex flex-col">
-                <label htmlFor="difficulty" className="form-label">
-                  Difficulty
-                </label>
-                <select
-                  type="text"
-                  maxLength="30"
-                  name="difficulty"
-                  value={form.difficulty}
-                  onChange={handleChange}
-                  required
-                  className="form-input"
-                >
-                  {difficulties.map((difficult, index) => (
-                    <option key={index}>{difficult}</option>
-                  ))}
-                </select>
-              </div>
-              <div className="flex flex-col">
-                <label htmlFor="category" className="form-label">
-                  Category
-                </label>
-                <select
-                  type="text"
-                  maxLength="30"
-                  name="category"
-                  value={form.category}
-                  onChange={handleChange}
-                  required
-                  className="form-input"
-                >
-                  {categories.map((category, index) => (
-                    <option key={index}>{category}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
+              <label htmlFor="image_url" className="form-label">
+                Song URL
+              </label>
+              <input
+                className="form-input"
+                type="url"
+                name="song_url"
+                value={form.song_url}
+                onChange={handleChange}
+                required
+              />
 
-            <label htmlFor="image_url" className="form-label">
-              Image URL
-            </label>
-            <input
-              type="url"
-              name="image_url"
-              value={form.image_url}
-              onChange={handleChange}
-              required
-              className="form-input"
-            />
-            <label htmlFor="image_url" className="form-label">
-              Song URL
-            </label>
-            <input
-              className="form-input"
-              type="url"
-              name="song_url"
-              value={form.song_url}
-              onChange={handleChange}
-              required
-            />
+              <label htmlFor="description" className="form-label">
+                Description
+              </label>
+              <textarea
+                className="form-input"
+                rows="4"
+                cols="50"
+                type="text"
+                name="description"
+                value={form.description}
+                onChange={handleChange}
+              />
 
-            <label htmlFor="description" className="form-label">
-              Description
-            </label>
-            <textarea
-              className="form-input"
-              rows="4"
-              cols="50"
-              type="text"
-              name="description"
-              value={form.description}
-              onChange={handleChange}
-            />
-
-            <button
-              type="submit"
-              className="w-auto bg-purple-400 hover:bg-purple-600 rounded-lg shadow-xl font-medium text-white px-6 py-2 mt-3"
-            >
-              Create
-            </button>
-          </form>
-          <p>{message}</p>
-          <div>
-            {Object.keys(errors).map((err, index) => (
-              <li key={index}>{err}</li>
-            ))}
+              <button
+                type="submit"
+                className="w-auto bg-purple-400 hover:bg-purple-600 rounded-lg shadow-xl font-medium text-white px-6 py-2 mt-3"
+              >
+                Create
+              </button>
+            </form>
+            <p>{message}</p>
+            <div>
+              {Object.keys(errors).map((err, index) => (
+                <li key={index}>{err}</li>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Fragment>
   );
 };
 

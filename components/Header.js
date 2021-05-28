@@ -66,7 +66,7 @@ const Header = () => {
             </div>
 
             <Disclosure.Panel className="md:hidden ">
-              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col justify-center items-center space-y-7 my-6 border-gray-500">
+              <div className="px-2 pt-2 pb-3 sm:px-3 flex flex-col justify-center items-center space-y-7 my-6 border-gray-500">
                 <Link href="/">
                   <a className="text-gray-700 bg-[#f8c35e] p-3 rounded-full text-lg ">
                     Home

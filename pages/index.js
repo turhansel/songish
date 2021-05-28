@@ -6,7 +6,7 @@ import Tilt from "react-tilt";
 import Lottie from "../components/Lottie";
 
 const Home = ({ songs }) => {
-  const a = "{window.innerWidth > 1200 ? '500px' : '100px'}";
+  const responsive = "{window.innerWidth > 1200 ? '500px' : '100px'}";
 
   const [searchTerm, setSearchTerm] = useState("");
   return (
@@ -16,8 +16,8 @@ const Home = ({ songs }) => {
           <div className="">
             <Lottie
               design={{
-                width: a,
-                height: a,
+                width: responsive,
+                height: responsive,
               }}
               animationData="./lotties/guitar.json"
             />
@@ -40,7 +40,7 @@ const Home = ({ songs }) => {
           </div>
         </div>
       </div>
-      <div className="px-24 py-8 my-0 mx-auto max-w-7xl grid grid-cols-4 justify-between ">
+      <div className="px-24 my-8 mx-auto max-w-7xl grid sm:grid-cols-2 md:grid-cols-4 grid-cols-1 justify-center items-center">
         {songs
           .filter((val) => {
             if (searchTerm == "") {
@@ -53,13 +53,23 @@ const Home = ({ songs }) => {
               val.category.toLowerCase().includes(searchTerm.toLowerCase())
             ) {
               return val;
+            } else if (
+              val.artist_name.toLowerCase().includes(searchTerm.toLowerCase())
+            ) {
+              return val;
+            } else if (
+              val.difficulty.toLowerCase().includes(searchTerm.toLowerCase())
+            ) {
+              return val;
             }
           })
           .map((song) => (
             <Tilt options={{ max: 25 }} key={song._id}>
               <div
                 key={song._id}
-                className="max-w-xs rounded-xl overflow-hidden blur-2xl shadow-xl my-2 p-5 flex flex-col justify-center items-center mix-blend-overlay	 bg-indigo-50"
+                className="max-w-xs rounded-xl overflow-hidden blur-2xl shadow-xl my-2 
+                p-5 flex flex-col justify-center items-center mix-blend-overlay bg-indigo-50
+                sm:flex-col "
               >
                 <div className="">
                   <h1>{song.category}</h1>
@@ -73,12 +83,12 @@ const Home = ({ songs }) => {
                     </a>
                   </Link>
                 </div>
-                <div className="flex flex-col md:w-10/12 text-left space-y-2">
+                <div className="flex md:flex-col sm:w-10/12 text-left space-y-2">
                   <h4 className="font-semibold text-[16px] mt-2">
                     {song.name}
                   </h4>
                   <p className="text-grey-darker text-gray-500">
-                    by {song.artist_name}
+                    {song.artist_name}
                   </p>
                   <p className=" text-sm font-semibold text-gray-500 mr-2">
                     {song.difficulty}
