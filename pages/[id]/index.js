@@ -6,11 +6,11 @@ import Song from "../../models/Song";
 import ReactPlayer from "react-player";
 
 const SongPage = ({ song }) => {
+  const contentType = "application/json";
   const router = useRouter();
   const [message, setMessage] = useState("");
   const handleDelete = async () => {
     const songID = router.query.id;
-
     try {
       await fetch(`/api/songs/${songID}`, {
         method: "Delete",
@@ -20,6 +20,39 @@ const SongPage = ({ song }) => {
       setMessage("Failed to delete the song.");
     }
   };
+
+  const putData = async (duration, progress) => {
+    const songID = router.query.id;
+
+    const res = await fetch(`/api/songs/${songID}`, {
+      method: "PUT",
+      headers: {
+        Accept: contentType,
+        "Content-Type": contentType,
+      },
+      body: JSON.stringify({
+        duration: duration,
+        progress: progress,
+      }),
+    });
+
+    const { data } = await res.json();
+  };
+
+  const [duration, setDuration] = useState([]);
+  const [progress, setProgress] = useState();
+
+  const handleDuration = (duration) => {
+    setDuration({ duration });
+    putData(duration);
+  };
+
+  const handleProgress = (progress) => {
+    // setProgress(parseInt(progress.played * 100));
+    setProgress(progress.played);
+    putData(progress);
+  };
+  console.log(progress);
 
   return (
     <div key={song._id} className="contain">
@@ -53,8 +86,19 @@ const SongPage = ({ song }) => {
             <div className="px-4 max-w-md text-left">
               <p>{song.description}</p>
             </div>
-            <ReactPlayer muted={true} controls url={song.song_url} />
+            <ReactPlayer
+              muted={true}
+              controls
+              url={song.song_url}
+              onDuration={handleDuration}
+              onProgress={handleProgress}
+            />
           </div>
+          <progress
+            value={parseInt(song.progress * 100)}
+            max="100"
+            strokeColor="blue"
+          />
         </div>
       </div>
     </div>

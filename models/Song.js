@@ -32,6 +32,12 @@ const SongSchema = new mongoose.Schema({
     required: true,
     type: String,
   },
+  duration: {
+    type: Number,
+  },
+  progress: {
+    type: Number,
+  },
 });
 
 export default mongoose.models.Song || mongoose.model("Song", SongSchema);

@@ -9,6 +9,8 @@ const NewSong = () => {
     image_url: "",
     song_url: "",
     description: "",
+    duration: "",
+    progress: "",
   };
 
   return <Form formId="add-song-form" songForm={songForm} />;

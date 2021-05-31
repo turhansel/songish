@@ -6,11 +6,27 @@ import Tilt from "react-tilt";
 import Lottie from "../components/Lottie";
 
 const Home = ({ songs }) => {
+  function format(time) {
+    // Hours, minutes and seconds
+    var hrs = ~~(time / 3600);
+    var mins = ~~((time % 3600) / 60);
+    var secs = ~~time % 60;
+
+    // Output like "1:01" or "4:03:59" or "123:03:59"
+    var ret = "";
+    if (hrs > 0) {
+      ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
+    }
+    ret += "" + mins + ":" + (secs < 10 ? "0" : "");
+    ret += "" + secs;
+    return ret;
+  }
+
   const responsive = "{window.innerWidth > 1200 ? '500px' : '100px'}";
 
   const [searchTerm, setSearchTerm] = useState("");
   return (
-    <div>
+    <div className>
       <div className="bg-indigo-100 w-screen h-[45vh] bg-no-repeat bg-cover bg-center flex justify-center items-center bg-opacity-60">
         <div className="flex items-center space-y-7 justify-evenly">
           <div className="">
@@ -83,7 +99,7 @@ const Home = ({ songs }) => {
                     </a>
                   </Link>
                 </div>
-                <div className="flex md:flex-col sm:w-10/12 text-left space-y-2">
+                <div className="flex md:flex-col sm:w-10/12 space-y-2">
                   <h4 className="font-semibold text-[16px] mt-2">
                     {song.name}
                   </h4>
@@ -94,6 +110,8 @@ const Home = ({ songs }) => {
                     {song.difficulty}
                   </p>
                 </div>
+                <p className="mt-4">{format(song.duration)}</p>
+                <p className="mt-4">{song.progress} </p>
 
                 <div className="">
                   <Link href="/[id]/edit" as={`/${song._id}/edit`}>

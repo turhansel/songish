@@ -39,7 +39,7 @@ const Header = () => {
                 <div className="hidden md:block">
                   <div className="ml-4 flex items-center md:ml-6 space-x-16">
                     <Link href="/">
-                      <a className="text-gray-700 bg-[#f8c35e] text-xl  p-3 rounded-full ">
+                      <a className="text-gray-700 bg-[#f8c35e] text-xl  p-3 rounded-full active:text-red-800">
                         Home
                       </a>
                     </Link>

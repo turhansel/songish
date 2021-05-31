@@ -90,8 +90,7 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
 
   const handleChange = (e) => {
     const target = e.target;
-    const value =
-      target.name === "poddy_trained" ? target.checked : target.value;
+    const value = target.value;
     const name = target.name;
 
     setForm({
@@ -192,7 +191,7 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
                     value={form.difficulty}
                     onChange={handleChange}
                     required
-                    className="form-input"
+                    className="form-input w-[193px]"
                   >
                     {difficulties.map((difficult, index) => (
                       <option key={index}>{difficult}</option>

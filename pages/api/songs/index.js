@@ -27,6 +27,20 @@ export default async function handler(req, res) {
         res.status(400).json({ success: false });
       }
       break;
+    case "PUT" /* Edit a model by its ID */:
+      try {
+        const song = await Song.findByIdAndUpdate(id, req.body, {
+          new: true,
+          runValidators: true,
+        });
+        if (!song) {
+          return res.status(400).json({ success: false });
+        }
+        res.status(200).json({ success: true, data: song });
+      } catch (error) {
+        res.status(400).json({ success: false });
+      }
+      break;
     default:
       res.status(400).json({ success: false });
       break;
