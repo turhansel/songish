@@ -11,6 +11,7 @@ const NewSong = () => {
     description: "",
     duration: "",
     progress: "",
+    date: new Date(),
   };
 
   return <Form formId="add-song-form" songForm={songForm} />;

@@ -5,6 +5,7 @@ import { useState } from "react";
 import Tilt from "react-tilt";
 import Lottie from "../components/Lottie";
 import ProgressBar from "@ramonak/react-progress-bar";
+import moment from "moment";
 
 const Home = ({ songs }) => {
   function format(time) {
@@ -23,11 +24,19 @@ const Home = ({ songs }) => {
     return ret;
   }
 
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const [searchDate, setSearchDate] = useState("Everything");
+
   const responsive = "{window.innerWidth > 1200 ? '500px' : '100px'}";
 
-  const [searchTerm, setSearchTerm] = useState("");
+  const today = moment().subtract(1, "days").calendar();
+  const thisWeek = moment().subtract(7, "days").calendar();
+  const thisMonth = moment().subtract(1, "months").calendar();
+
+  // console.log(thisMonth);
   return (
-    <div className="h-screen">
+    <div className="">
       <div className="bg-indigo-100 w-screen h-[45vh] bg-no-repeat bg-cover bg-center flex justify-center items-center bg-opacity-60">
         <div className="flex items-center space-y-7 justify-evenly">
           <div className="">
@@ -53,11 +62,26 @@ const Home = ({ songs }) => {
                 className="form-input rounded-full w-full"
                 placeholder="Search Song..."
               />
+              <select
+                type="text"
+                maxLength="30"
+                name="category"
+                value={searchDate}
+                onChange={(e) => {
+                  setSearchDate(e.target.value);
+                }}
+                className="form-input form-input rounded-full w-full mt-3"
+              >
+                <option>Everything</option>
+                <option>Today</option>
+                <option>This Week</option>
+                <option>This Month</option>
+              </select>
             </div>
           </div>
         </div>
       </div>
-      <div className="px-24 my-8 mx-auto max-w-7xl grid sm:grid-cols-2 md:grid-cols-4 grid-cols-1 justify-center items-center">
+      <div className="h-full px-24 my-8 mx-auto max-w-7xl grid sm:grid-cols-2 md:grid-cols-4 grid-cols-1 justify-center items-center">
         {songs
           .filter((val) => {
             if (searchTerm == "") {
@@ -74,10 +98,17 @@ const Home = ({ songs }) => {
               val.artist_name.toLowerCase().includes(searchTerm.toLowerCase())
             ) {
               return val;
-            } else if (
-              val.difficulty.toLowerCase().includes(searchTerm.toLowerCase())
-            ) {
-              return val;
+            }
+          })
+          .filter((value) => {
+            if (searchDate == "Everything") {
+              return value;
+            } else if (searchDate == "Today") {
+              return moment(value.date).calendar() > today;
+            } else if (searchDate == "This Week") {
+              return moment(value.date).calendar() > thisWeek;
+            } else if (searchDate == "This Month") {
+              return moment(value.date).calendar() > thisMonth;
             }
           })
           .map((song) => (
@@ -93,6 +124,7 @@ const Home = ({ songs }) => {
                   <Link href="/[id]" as={`/${song._id}`}>
                     <a>
                       <img
+                        height={"200px"}
                         src={song.image_url}
                         alt={song.name}
                         className="w-[200px] h-52"
@@ -123,7 +155,8 @@ const Home = ({ songs }) => {
                     />
                   </div>
                 )}
-
+                <p>{moment(song.date).calendar()}</p>
+                {/* <p>{moment.locale(song.date)}</p> */}
                 <div className="">
                   <Link href="/[id]/edit" as={`/${song._id}/edit`}>
                     <button className="bg-indigo-200 md:px-16 sm:px-5 xs:px-5 rounded hover:bg-indigo-400 mt-3">
@@ -145,6 +178,7 @@ export async function getServerSideProps() {
   // JSON.parse(safeJsonStringify(doc.data()))
   /* find all the data in our database */
   const result = await Song.find({});
+
   const songs = result.map((doc) => {
     const song = doc.toObject();
     song._id = song._id.toLocaleString();

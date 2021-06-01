@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 
-/* SongSchema will correspond to a collection in your MongoDB database. */
 const SongSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -38,6 +37,7 @@ const SongSchema = new mongoose.Schema({
   progress: {
     type: Number,
   },
+  date: { type: Date, required: true },
 });
 
 export default mongoose.models.Song || mongoose.model("Song", SongSchema);

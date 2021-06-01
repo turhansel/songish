@@ -2,6 +2,7 @@ import Head from "next/head";
 import { Fragment, useState } from "react";
 import { useRouter } from "next/router";
 import { mutate } from "swr";
+import moment from "moment";
 
 import Lottie from "../components/Lottie";
 
@@ -19,6 +20,7 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
     description: songForm.description,
     image_url: songForm.image_url,
     song_url: songForm.song_url,
+    date: songForm.date,
   });
 
   const [categories, setCategories] = useState([
@@ -118,6 +120,7 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
     if (!form.description) err.description = "Owner is required";
     if (!form.image_url) err.image_url = "image_url is required";
     if (!form.song_url) err.song_url = "song_url is required";
+    if (!form.date) err.date = "date is required";
     return err;
   };
 
@@ -246,7 +249,7 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
               </label>
               <textarea
                 className="form-input"
-                rows="4"
+                rows="2"
                 cols="50"
                 type="text"
                 name="description"
@@ -254,6 +257,18 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
                 onChange={handleChange}
               />
 
+              <label htmlFor="date" className="form-label">
+                Date
+              </label>
+              <input
+                className="form-input"
+                type="date"
+                name="date"
+                required
+                pattern="\d{4}-\d{2}-\d{2}"
+                onChange={handleChange}
+                value={form.date}
+              />
               <button
                 type="submit"
                 className="w-auto bg-purple-400 hover:bg-purple-600 rounded-lg shadow-xl font-medium text-white px-6 py-2 mt-3"
