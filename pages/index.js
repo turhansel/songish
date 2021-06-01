@@ -111,7 +111,7 @@ const Home = ({ songs }) => {
                   </p>
                 </div>
                 <p className="mt-4">{format(song.duration)}</p>
-                <p className="mt-4">{song.progress} </p>
+                <progress value={song.progress} max="100" />
 
                 <div className="">
                   <Link href="/[id]/edit" as={`/${song._id}/edit`}>

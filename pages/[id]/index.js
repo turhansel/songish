@@ -21,7 +21,24 @@ const SongPage = ({ song }) => {
     }
   };
 
-  const putData = async (duration, progress) => {
+  const putProgress = async () => {
+    const songID = router.query.id;
+
+    const res = await fetch(`/api/songs/${songID}`, {
+      method: "PUT",
+      headers: {
+        Accept: contentType,
+        "Content-Type": contentType,
+      },
+      body: JSON.stringify({
+        progress: progress,
+      }),
+    });
+
+    const { data } = await res.json();
+  };
+
+  const putDuration = async (duration) => {
     const songID = router.query.id;
 
     const res = await fetch(`/api/songs/${songID}`, {
@@ -32,7 +49,6 @@ const SongPage = ({ song }) => {
       },
       body: JSON.stringify({
         duration: duration,
-        progress: progress,
       }),
     });
 
@@ -40,17 +56,16 @@ const SongPage = ({ song }) => {
   };
 
   const [duration, setDuration] = useState([]);
-  const [progress, setProgress] = useState();
+  const [progress, setProgress] = useState([]);
 
   const handleDuration = (duration) => {
-    setDuration({ duration });
-    putData(duration);
+    setDuration(duration);
+    putDuration(duration);
   };
 
   const handleProgress = (progress) => {
-    // setProgress(parseInt(progress.played * 100));
-    setProgress(progress.played);
-    putData(progress);
+    setProgress(parseInt(progress.played * 100));
+    putProgress(progress);
   };
   console.log(progress);
 
@@ -94,11 +109,7 @@ const SongPage = ({ song }) => {
               onProgress={handleProgress}
             />
           </div>
-          <progress
-            value={parseInt(song.progress * 100)}
-            max="100"
-            strokeColor="blue"
-          />
+          <progress value={progress} max="100" />
         </div>
       </div>
     </div>
