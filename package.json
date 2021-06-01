@@ -10,6 +10,7 @@
     "@headlessui/react": "^1.2.0",
     "@heroicons/react": "^1.0.1",
     "@lottiefiles/lottie-player": "^1.0.4",
+    "@ramonak/react-progress-bar": "^3.1.0",
     "babel-plugin-superjson-next": "^0.3.0",
     "install": "^0.13.0",
     "mongoose": "^5.9.13",

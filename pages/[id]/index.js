@@ -71,8 +71,8 @@ const SongPage = ({ song }) => {
 
   return (
     <div key={song._id} className="contain">
-      <div className=" flex flex-col py-10">
-        <div className="py-2 mb-5">
+      <div className="h-screen">
+        <div className="flex flex-col py-2 mb-5">
           <h1 className="text-xl">
             <span className="">Fretello </span>
             <span> &gt; </span>
@@ -84,10 +84,12 @@ const SongPage = ({ song }) => {
           <h3 className="text-md pt-1">by {song.artist_name}</h3>
         </div>
         <div>
-          <div className="flex flex-row justify-between">
-            <div>
-              <img src={song.image_url} className="max-w-[185px]" />
+          <div className="flex flex-row justify-between ">
+            <div className="flex-grow">
+              <img src={song.image_url} className="max-w-[185px] float-left" />
+              <p>{song.description}</p>
               <div className="mt-7 space-x-10">
+                <div className="px-4 max-w-md text-left"></div>
                 <Link href="/[id]/edit" as={`/${song._id}/edit`}>
                   <button className="edit-button">Edit</button>
                 </Link>
@@ -98,18 +100,16 @@ const SongPage = ({ song }) => {
 
               {message && <p>{message}</p>}
             </div>
-            <div className="px-4 max-w-md text-left">
-              <p>{song.description}</p>
+            <div>
+              <ReactPlayer
+                muted={true}
+                controls
+                url={song.song_url}
+                onDuration={handleDuration}
+                onProgress={handleProgress}
+              />
             </div>
-            <ReactPlayer
-              muted={true}
-              controls
-              url={song.song_url}
-              onDuration={handleDuration}
-              onProgress={handleProgress}
-            />
           </div>
-          <progress value={progress} max="100" />
         </div>
       </div>
     </div>

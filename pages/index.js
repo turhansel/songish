@@ -4,6 +4,7 @@ import Song from "../models/Song";
 import { useState } from "react";
 import Tilt from "react-tilt";
 import Lottie from "../components/Lottie";
+import ProgressBar from "@ramonak/react-progress-bar";
 
 const Home = ({ songs }) => {
   function format(time) {
@@ -26,7 +27,7 @@ const Home = ({ songs }) => {
 
   const [searchTerm, setSearchTerm] = useState("");
   return (
-    <div className>
+    <div className="h-screen">
       <div className="bg-indigo-100 w-screen h-[45vh] bg-no-repeat bg-cover bg-center flex justify-center items-center bg-opacity-60">
         <div className="flex items-center space-y-7 justify-evenly">
           <div className="">
@@ -94,7 +95,7 @@ const Home = ({ songs }) => {
                       <img
                         src={song.image_url}
                         alt={song.name}
-                        className="max-w-[200px] object-cover"
+                        className="w-[200px] h-52"
                       />
                     </a>
                   </Link>
@@ -110,8 +111,18 @@ const Home = ({ songs }) => {
                     {song.difficulty}
                   </p>
                 </div>
-                <p className="mt-4">{format(song.duration)}</p>
-                <progress value={song.progress} max="100" />
+                <p className="text-sm text-gray-500">{format(song.duration)}</p>
+                {song.progress > 0 && (
+                  <div className="w-9/12">
+                    <ProgressBar
+                      completed={song.progress}
+                      borderRadius={"30px"}
+                      bgColor={"#34D399"}
+                      labelSize={"10px"}
+                      labelAlignment={"center"}
+                    />
+                  </div>
+                )}
 
                 <div className="">
                   <Link href="/[id]/edit" as={`/${song._id}/edit`}>
