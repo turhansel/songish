@@ -23,18 +23,15 @@ const Home = ({ songs }) => {
     ret += "" + secs;
     return ret;
   }
-
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const [searchDate, setSearchDate] = useState("Everything");
-
   const responsive = "{window.innerWidth > 1200 ? '500px' : '100px'}";
 
-  const today = moment().subtract(1, "days").calendar();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchDate, setSearchDate] = useState("Everything");
+
+  const yesterday = moment().subtract(36, "hours").calendar(); // IDK how i fix this bug :D
   const thisWeek = moment().subtract(7, "days").calendar();
   const thisMonth = moment().subtract(1, "months").calendar();
 
-  // console.log(thisMonth);
   return (
     <div className="">
       <div className="bg-indigo-100 w-screen h-[45vh] bg-no-repeat bg-cover bg-center flex justify-center items-center bg-opacity-60">
@@ -104,9 +101,9 @@ const Home = ({ songs }) => {
             if (searchDate == "Everything") {
               return value;
             } else if (searchDate == "Today") {
-              return moment(value.date).calendar() > today;
+              return yesterday < moment(value.date).calendar();
             } else if (searchDate == "This Week") {
-              return moment(value.date).calendar() > thisWeek;
+              return thisWeek < moment(value.date).calendar();
             } else if (searchDate == "This Month") {
               return moment(value.date).calendar() > thisMonth;
             }
