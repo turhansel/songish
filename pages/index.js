@@ -78,7 +78,10 @@ const Home = ({ songs }) => {
           </div>
         </div>
       </div>
-      <div className="h-full px-24 my-8 mx-auto max-w-7xl grid sm:grid-cols-2 md:grid-cols-4 grid-cols-1 justify-center items-center">
+      <div
+        className="h-full px-24 my-8 mx-auto max-w-7xl grid sm:grid-cols-2 
+      md:grid-cols-4 grid-cols-1 justify-center items-center "
+      >
         {songs
           .filter((val) => {
             if (searchTerm == "") {
@@ -114,7 +117,7 @@ const Home = ({ songs }) => {
                 key={song._id}
                 className="max-w-xs rounded-xl overflow-hidden blur-2xl shadow-xl my-2 
                 p-5 flex flex-col justify-center items-center mix-blend-overlay bg-indigo-50
-                sm:flex-col "
+                sm:flex-col hover:shadow-md"
               >
                 <div className="">
                   <h1>{song.category}</h1>
@@ -172,7 +175,6 @@ const Home = ({ songs }) => {
 /* Retrieves song(s) data from mongodb database */
 export async function getServerSideProps() {
   await dbConnect();
-  // JSON.parse(safeJsonStringify(doc.data()))
   /* find all the data in our database */
   const result = await Song.find({});
 
