@@ -132,8 +132,8 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
         <title>Create Song</title>
       </Head>
 
-      <div className="bg-form-bg bg-cover md:h-screen">
-        <div className="flex md:flex-row justify-between sm:flex-col sm:flex-wrap contain">
+      <div className="md:bg-form-bg bg-cover md:h-screen md:mt-24 bg-indigo-100 mt-16 h-full">
+        <div className="flex md:flex-row justify-between flex-col sm:flex-wrap contain">
           <div className="">
             <Lottie
               design={{ width: responsive, height: responsive }}
@@ -151,7 +151,7 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
                   Create Song
                 </h1>
               </div>
-              <div className="flex justify-between mt-2">
+              <div className="flex justify-between mt-2 md:flex-row flex-col">
                 <div className="flex flex-col">
                   <label htmlFor="name" className="form-label">
                     Song Title
@@ -182,7 +182,7 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
                   />
                 </div>
               </div>
-              <div className="flex justify-between">
+              <div className="flex justify-between md:flex-row flex-col">
                 <div className="flex flex-col">
                   <label htmlFor="difficulty" className="form-label">
                     Difficulty
@@ -194,7 +194,7 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
                     value={form.difficulty}
                     onChange={handleChange}
                     required
-                    className="form-input w-[193px]"
+                    className="form-input w-full"
                   >
                     {difficulties.map((difficult, index) => (
                       <option key={index}>{difficult}</option>

@@ -14,11 +14,11 @@ const Header = () => {
     <div>
       <Disclosure
         as="nav"
-        className="bg-indigo-50 backdrop-filter drop-shadow-sm  sticky top-0"
+        className="bg-indigo-100 backdrop-filter drop-shadow-sm  fixed w-full blur-lg top-0 z-10 md:mb-10"
       >
         {({ open }) => (
           <>
-            <div className="max-w-7xl mx-auto px-8 sm:px-6 lg:px-8 md:py-6 sm:py-4 	backdrop-filter drop-shadow-sm backdrop-blur-lg">
+            <div className="max-w-7xl mx-auto px-8 sm:px-6 lg:px-8 md:py-6 sm:py-4 backdrop-filter drop-shadow-sm backdrop-blur-lg">
               <div className="flex items-center justify-between h-16">
                 <Link href="/">
                   <a>
@@ -39,12 +39,12 @@ const Header = () => {
                 <div className="hidden md:block">
                   <div className="ml-4 flex items-center md:ml-6 space-x-16">
                     <Link href="/">
-                      <a className="text-gray-700 bg-[#f8c35e] text-xl  p-3 rounded-full active:text-red-800">
+                      <a className="text-gray-700 bg-[#f8c35e] text-xl  p-3 rounded-2xl ">
                         Home
                       </a>
                     </Link>
                     <Link href="/new">
-                      <a className="bg-[#f8c35e] text-gray-700 p-3 rounded-full text-xl ">
+                      <a className="bg-[#f8c35e] text-gray-700 p-3 rounded-2xl text-xl ">
                         Create Song
                       </a>
                     </Link>

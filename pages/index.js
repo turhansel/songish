@@ -28,13 +28,12 @@ const Home = ({ songs }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchDate, setSearchDate] = useState("Everything");
 
-  const yesterday = moment().subtract(39, "hours").calendar(); // IDK how i fix this bug :D
+  const yesterday = moment().subtract(48, "hours").calendar(); // IDK how i fix this bug :D
   const thisWeek = moment().subtract(7, "days").calendar();
   const thisMonth = moment().subtract(1, "months").calendar();
-  console.log(yesterday);
 
   return (
-    <div className="">
+    <div className="md:mt-28 sm:mt-20">
       <div className="bg-indigo-100 w-screen h-[45vh] bg-no-repeat bg-cover bg-center flex justify-center items-center bg-opacity-60">
         <div className="flex items-center space-y-7 justify-evenly">
           <div className="">
@@ -79,6 +78,9 @@ const Home = ({ songs }) => {
           </div>
         </div>
       </div>
+      {songs.map((song) => (
+        <p>{song.duration}</p>
+      ))}
       <div
         className="h-full px-24 my-8 mx-auto max-w-7xl grid sm:grid-cols-2 
       md:grid-cols-4 grid-cols-1 justify-center items-center "
