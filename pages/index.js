@@ -27,6 +27,7 @@ const Home = ({ songs }) => {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [searchDate, setSearchDate] = useState("Everything");
+  const [totalDuration, setTotalDuration] = useState("");
 
   const yesterday = moment().subtract(48, "hours").calendar(); // IDK how i fix this bug :D
   const thisWeek = moment().subtract(7, "days").calendar();
@@ -51,12 +52,12 @@ const Home = ({ songs }) => {
                 Learn the songs you love
               </h2>
             </div>
-            <div className="w-full">
+            <div className="md:w-full ">
               <input
                 onChange={(e) => {
                   setSearchTerm(e.target.value);
                 }}
-                className="form-input rounded-full w-full"
+                className="form-input rounded-full md:w-full"
                 placeholder="Search Song..."
               />
               <select
@@ -67,7 +68,7 @@ const Home = ({ songs }) => {
                 onChange={(e) => {
                   setSearchDate(e.target.value);
                 }}
-                className="form-input form-input rounded-full w-full mt-3"
+                className="form-input rounded-full md:w-full mt-3 w-[67%]"
               >
                 <option>Everything</option>
                 <option>Today</option>
@@ -78,12 +79,12 @@ const Home = ({ songs }) => {
           </div>
         </div>
       </div>
-      {songs.map((song) => (
+      {/* {songs.map((song) => (
         <p>{song.duration}</p>
-      ))}
+      ))} */}
       <div
-        className="h-full px-24 my-8 mx-auto max-w-7xl grid sm:grid-cols-2 
-      md:grid-cols-4 grid-cols-1 justify-center items-center "
+        className="h-full md:px-12 my-8 mx-auto max-w-7xl grid sm:grid-cols-2 
+      md:grid-cols-4 grid-cols-1justify-center items-center"
       >
         {songs
           .filter((val) => {
@@ -111,6 +112,9 @@ const Home = ({ songs }) => {
                 return yesterday < moment(value.updatedAt).calendar();
               }
             } else if (searchDate == "This Week") {
+              {
+                /* console.log(value.duration)), */
+              }
               return thisWeek < moment(value.updatedAt).calendar();
             } else if (searchDate == "This Month") {
               return thisMonth < moment(value.updatedAt).calendar();
@@ -120,12 +124,12 @@ const Home = ({ songs }) => {
             <Tilt options={{ max: 25 }} key={song._id}>
               <div
                 key={song._id}
-                className="max-w-xs rounded-xl overflow-hidden blur-2xl shadow-xl my-2 
-                p-5 flex flex-col justify-center items-center mix-blend-overlay bg-indigo-50
-                sm:flex-col hover:shadow-md"
+                className="rounded-xl overflow-hidden shadow-xl my-2 
+                p-4  flex flex-col justify-center items-center bg-indigo-50
+                sm:flex-col hover:shadow-md md:mx-4 mx-12 "
               >
                 <div className="">
-                  <h1>{song.category}</h1>
+                  <h1 className="mb-1 text-center">{song.category}</h1>
                   <Link href="/[id]" as={`/${song._id}`}>
                     <a>
                       <img
@@ -137,13 +141,11 @@ const Home = ({ songs }) => {
                     </a>
                   </Link>
                 </div>
-                <div className="flex md:flex-col sm:w-10/12 space-y-2">
+                <div className="flex flex-col md:w-10/12 md:space-y-2 space-y-2 md:ml-0 ml-2">
                   <h4 className="font-semibold text-[16px] mt-2">
                     {song.name}
                   </h4>
-                  <p className="text-grey-darker text-gray-500">
-                    {song.artist_name}
-                  </p>
+                  <p className=" text-gray-500">{song.artist_name}</p>
                   <p className=" text-sm font-semibold text-gray-500 mr-2">
                     {song.difficulty}
                   </p>
@@ -160,11 +162,9 @@ const Home = ({ songs }) => {
                     />
                   </div>
                 )}
-                <p>{moment(song.updatedAt).calendar()}</p>
-                {/* <p>{moment.locale(song.date)}</p> */}
                 <div className="">
                   <Link href="/[id]/edit" as={`/${song._id}/edit`}>
-                    <button className="bg-indigo-200 md:px-16 sm:px-5 xs:px-5 rounded hover:bg-indigo-400 mt-3">
+                    <button className="bg-indigo-200 md:px-16 px-12 rounded hover:bg-indigo-400 mt-3">
                       Edit
                     </button>
                   </Link>

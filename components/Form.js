@@ -194,7 +194,7 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
                     value={form.difficulty}
                     onChange={handleChange}
                     required
-                    className="form-input w-full"
+                    className="form-input "
                   >
                     {difficulties.map((difficult, index) => (
                       <option key={index}>{difficult}</option>
@@ -270,7 +270,7 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
               />
               <button
                 type="submit"
-                className="w-auto bg-purple-400 hover:bg-purple-600 rounded-lg shadow-xl font-medium text-white px-6 py-2 mt-3"
+                className="w-auto bg-purple-400 hover:bg-purple-600 md:mx-0 mx-4 md:mb-0 mb-4 rounded-lg shadow-xl font-medium text-white px-6 py-2 mt-3"
               >
                 Create
               </button>

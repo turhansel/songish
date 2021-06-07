@@ -4,6 +4,7 @@ import Link from "next/link";
 import dbConnect from "../../utils/dbConnect";
 import Song from "../../models/Song";
 import ReactPlayer from "react-player";
+import moment from "moment";
 
 const SongPage = ({ song }) => {
   const contentType = "application/json";
@@ -69,25 +70,31 @@ const SongPage = ({ song }) => {
   };
 
   return (
-    <div key={song._id} className="contain">
+    <div key={song._id} className="contain md:mt-32">
       <div className="h-screen">
         <div className="flex flex-col py-2 mb-5">
           <h1 className="text-xl">
-            <span className="">Fretello </span>
+            <span className="text-gray-600">Fretello </span>
             <span> &gt; </span>
-            <span>Songs </span>
+            <span className="text-gray-600">Songs </span>
             <span>&gt; </span>
-            <span>{song.name} </span>
+            <span className="text-gray-700">{song.category} </span>
           </h1>
-          <h2 className="text-xl pt-3">{song.name}</h2>
+          <h2 className="text-xl pt-3 text-gray-700">{song.name}</h2>
           <h3 className="text-md pt-1">by {song.artist_name}</h3>
+          <p className="text-gray-500 text-sm md:mt-2">
+            {moment(song.date).calendar()}
+          </p>
         </div>
         <div>
-          <div className="flex flex-row justify-between ">
-            <div className="flex-grow">
-              <img src={song.image_url} className="max-w-[185px] float-left" />
-              <p>{song.description}</p>
-              <div className="mt-7 space-x-10">
+          <div className="flex md:flex-row flex-col justify-between ">
+            <div className="">
+              <img
+                src={song.image_url}
+                className="max-w-[185px] float-left md:mr-4"
+              />
+              <p className="md:mx-4">{song.description}</p>
+              <div className="mt-7 space-x-10 md:mb-6">
                 <div className="px-4 max-w-md text-left"></div>
                 <Link href="/[id]/edit" as={`/${song._id}/edit`}>
                   <button className="edit-button">Edit</button>
@@ -99,8 +106,9 @@ const SongPage = ({ song }) => {
 
               {message && <p>{message}</p>}
             </div>
-            <div>
+            <div className="">
               <ReactPlayer
+                width="520px"
                 muted={true}
                 controls
                 url={song.song_url}
