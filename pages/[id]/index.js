@@ -67,7 +67,6 @@ const SongPage = ({ song }) => {
     setProgress(parseInt(progress.played * 100));
     putProgress(progress);
   };
-  console.log(progress);
 
   return (
     <div key={song._id} className="contain">

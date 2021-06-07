@@ -25,18 +25,18 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
 
   const [categories, setCategories] = useState([
     "",
-    "Women That Rock",
-    "Iconic Rock Guitar Riffs",
-    "4 Chords Songs",
+    "Feel Good Chords",
     "Funky Grooves",
-    "Chill Chords",
+    "Vibin' n' thrivin'",
+    "Funky Grooves",
+    "Smooth Lust",
   ]);
 
   const [difficulties, setDifficulties] = useState([
     "",
     "Easy",
     "Medium",
-    "Expert",
+    "Advanced",
   ]);
 
   /* The PUT method edits an existing entry in the mongodb database. */
@@ -258,7 +258,7 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
               />
 
               <label htmlFor="date" className="form-label">
-                Date
+                Published Date
               </label>
               <input
                 className="form-input"

@@ -28,9 +28,10 @@ const Home = ({ songs }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchDate, setSearchDate] = useState("Everything");
 
-  const yesterday = moment().subtract(36, "hours").calendar(); // IDK how i fix this bug :D
+  const yesterday = moment().subtract(39, "hours").calendar(); // IDK how i fix this bug :D
   const thisWeek = moment().subtract(7, "days").calendar();
   const thisMonth = moment().subtract(1, "months").calendar();
+  console.log(yesterday);
 
   return (
     <div className="">
@@ -104,11 +105,13 @@ const Home = ({ songs }) => {
             if (searchDate == "Everything") {
               return value;
             } else if (searchDate == "Today") {
-              return yesterday < moment(value.date).calendar();
+              {
+                return yesterday < moment(value.updatedAt).calendar();
+              }
             } else if (searchDate == "This Week") {
-              return thisWeek < moment(value.date).calendar();
+              return thisWeek < moment(value.updatedAt).calendar();
             } else if (searchDate == "This Month") {
-              return moment(value.date).calendar() > thisMonth;
+              return thisMonth < moment(value.updatedAt).calendar();
             }
           })
           .map((song) => (
@@ -155,7 +158,7 @@ const Home = ({ songs }) => {
                     />
                   </div>
                 )}
-                <p>{moment(song.date).calendar()}</p>
+                <p>{moment(song.updatedAt).calendar()}</p>
                 {/* <p>{moment.locale(song.date)}</p> */}
                 <div className="">
                   <Link href="/[id]/edit" as={`/${song._id}/edit`}>
