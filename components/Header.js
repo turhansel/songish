@@ -31,7 +31,7 @@ const Header = () => {
                         />
                       </div>
                       <div className="hidden md:block ">
-                        {/* <h1 className="text-4xl">Fretello</h1> */}
+                        {/* <h1 className="text-4xl italic">Fretello</h1> */}
                       </div>
                     </div>
                   </a>
@@ -39,12 +39,12 @@ const Header = () => {
                 <div className="hidden md:block">
                   <div className="ml-4 flex items-center md:ml-6 space-x-16">
                     <Link href="/">
-                      <a className="text-gray-700 bg-[#f8c35e] text-xl  p-3 rounded-2xl ">
+                      <a className="text-gray-700  bg-gradient-to-r from-blue-200 to-green-400 text-xl  p-3 rounded-2xl ">
                         Home
                       </a>
                     </Link>
                     <Link href="/new">
-                      <a className="bg-[#f8c35e] text-gray-700 p-3 rounded-2xl text-xl ">
+                      <a className="text-gray-700 p-3 rounded-2xl text-xl bg-gradient-to-r from-blue-200 to-green-400 ">
                         Create Song
                       </a>
                     </Link>

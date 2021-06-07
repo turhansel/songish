@@ -6,6 +6,7 @@ import Tilt from "react-tilt";
 import Lottie from "../components/Lottie";
 import ProgressBar from "@ramonak/react-progress-bar";
 import moment from "moment";
+import { Fade } from "react-reveal";
 
 const Home = ({ songs }) => {
   function format(time) {
@@ -121,56 +122,60 @@ const Home = ({ songs }) => {
             }
           })
           .map((song) => (
-            <Tilt options={{ max: 25 }} key={song._id}>
-              <div
-                key={song._id}
-                className="rounded-xl overflow-hidden shadow-xl my-2 
+            <Fade top duration={1000} distance="40px">
+              <Tilt options={{ max: 25 }} key={song._id}>
+                <div
+                  key={song._id}
+                  className="rounded-xl overflow-hidden shadow-xl my-2 
                 p-4  flex flex-col justify-center items-center bg-indigo-50
                 sm:flex-col hover:shadow-md md:mx-4 mx-12 "
-              >
-                <div className="">
-                  <h1 className="mb-1 text-center">{song.category}</h1>
-                  <Link href="/[id]" as={`/${song._id}`}>
-                    <a>
-                      <img
-                        height={"200px"}
-                        src={song.image_url}
-                        alt={song.name}
-                        className="w-[200px] h-52"
-                      />
-                    </a>
-                  </Link>
-                </div>
-                <div className="flex flex-col md:w-10/12 md:space-y-2 space-y-2 md:ml-0 ml-2">
-                  <h4 className="font-semibold text-[16px] mt-2">
-                    {song.name}
-                  </h4>
-                  <p className=" text-gray-500">{song.artist_name}</p>
-                  <p className=" text-sm font-semibold text-gray-500 mr-2">
-                    {song.difficulty}
-                  </p>
-                </div>
-                <p className="text-sm text-gray-500">{format(song.duration)}</p>
-                {song.progress > 0 && (
-                  <div className="w-9/12">
-                    <ProgressBar
-                      completed={song.progress}
-                      borderRadius={"30px"}
-                      bgColor={"#34D399"}
-                      labelSize={"10px"}
-                      labelAlignment={"center"}
-                    />
+                >
+                  <div className="">
+                    <h1 className="mb-1 text-center">{song.category}</h1>
+                    <Link href="/[id]" as={`/${song._id}`}>
+                      <a>
+                        <img
+                          height={"200px"}
+                          src={song.image_url}
+                          alt={song.name}
+                          className="w-[200px] h-52"
+                        />
+                      </a>
+                    </Link>
                   </div>
-                )}
-                <div className="">
-                  <Link href="/[id]/edit" as={`/${song._id}/edit`}>
-                    <button className="bg-indigo-200 md:px-16 px-12 rounded hover:bg-indigo-400 mt-3">
-                      Edit
-                    </button>
-                  </Link>
+                  <div className="flex flex-col md:w-10/12 md:space-y-2 space-y-2 md:ml-0 ml-2">
+                    <h4 className="font-semibold text-[16px] mt-2">
+                      {song.name}
+                    </h4>
+                    <p className=" text-gray-500">{song.artist_name}</p>
+                    <p className=" text-sm font-semibold text-gray-500 mr-2">
+                      {song.difficulty}
+                    </p>
+                  </div>
+                  <p className="text-sm text-gray-500">
+                    {format(song.duration)}
+                  </p>
+                  {song.progress > 0 && (
+                    <div className="w-9/12">
+                      <ProgressBar
+                        completed={song.progress}
+                        borderRadius={"30px"}
+                        bgColor={"#34D399"}
+                        labelSize={"10px"}
+                        labelAlignment={"center"}
+                      />
+                    </div>
+                  )}
+                  <div className="">
+                    <Link href="/[id]/edit" as={`/${song._id}/edit`}>
+                      <button className="bg-indigo-200 md:px-16 px-12 rounded hover:bg-indigo-400 mt-3">
+                        Edit
+                      </button>
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            </Tilt>
+              </Tilt>
+            </Fade>
           ))}
       </div>
     </div>
