@@ -11,7 +11,7 @@ function classNames(...classes) {
 
 const Header = () => {
   return (
-    <div>
+    <Fragment>
       <Disclosure
         as="nav"
         className="bg-indigo-100 backdrop-filter drop-shadow-sm  fixed w-full blur-lg top-0 z-10 md:mb-10"
@@ -53,7 +53,7 @@ const Header = () => {
 
                 <div className="-mr-2 flex md:hidden">
                   {/* Mobile menu button */}
-                  <Disclosure.Button className="bg-indigo-200 inline-flex items-center justify-center p-2 rounded-md text-indigo-600 hover:text-white hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-red-400 focus:ring-white">
+                  <Disclosure.Button className="bg-gradient-to-r from-blue-200 to-green-400 inline-flex items-center justify-center p-2 rounded-md text-green-900 hover:text-white hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-400 focus:ring-white">
                     <span className="sr-only">Open main menu</span>
                     {open ? (
                       <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -68,12 +68,12 @@ const Header = () => {
             <Disclosure.Panel className="md:hidden ">
               <div className="px-2 pt-2 pb-3 sm:px-3 flex flex-col justify-center items-center space-y-7 my-6 border-gray-500">
                 <Link href="/">
-                  <a className="text-gray-700 bg-[#f8c35e] p-3 rounded-full text-lg ">
+                  <a className="text-gray-700 bg-gradient-to-r from-blue-200 to-green-400 p-3 rounded-full text-lg ">
                     Home
                   </a>
                 </Link>
                 <Link href="/new">
-                  <a className="text-gray-700 bg-[#f8c35e] p-3 rounded-full text-lg ">
+                  <a className="text-gray-700 bg-gradient-to-r from-blue-200 to-green-400 p-3 rounded-full text-lg ">
                     Create Song
                   </a>
                 </Link>
@@ -95,7 +95,7 @@ const Header = () => {
                       turhansel@gmail.com
                     </div>
                   </div>
-                  <button className="ml-auto bg-gray-600 flex-shrink-0 p-1 rounded-full text-red-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                  <button className="ml-auto bg-gray-500 flex-shrink-0 p-1 rounded-full text-green-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-green-800 focus:ring-white">
                     <span className="sr-only">View notifications</span>
                     <BellIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
@@ -105,7 +105,7 @@ const Header = () => {
           </>
         )}
       </Disclosure>
-    </div>
+    </Fragment>
   );
 };
 

@@ -4,7 +4,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <Fade bottom duration={1000} distance="5px">
-      <div className="md:mt-12 md:pb-8 pb-5 text-xl hover:text-xl mt-4">
+      <div className="md:pt-12 md:pb-8 pb-5 text-xl hover:text-xl ">
         <p className="text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-green-400">
           Made by
           <Link href="https://github.com/turhansel">

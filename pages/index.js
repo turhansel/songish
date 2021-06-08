@@ -27,7 +27,7 @@ const Home = ({ songs }) => {
   const responsive = "{window.innerWidth > 1200 ? '500px' : '100px'}";
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchDate, setSearchDate] = useState("Everything");
+  const [searchDate, setSearchDate] = useState("Every Time");
   const [totalDuration, setTotalDuration] = useState("");
 
   const yesterday = moment().subtract(48, "hours").calendar(); // IDK how i fix this bug :D
@@ -71,7 +71,7 @@ const Home = ({ songs }) => {
                 }}
                 className="form-input rounded-full md:w-full mt-3 w-[77%] px-3"
               >
-                <option>Everything</option>
+                <option>Every Time</option>
                 <option>Today</option>
                 <option>This Week</option>
                 <option>This Month</option>
@@ -106,7 +106,7 @@ const Home = ({ songs }) => {
             }
           })
           .filter((value) => {
-            if (searchDate == "Everything") {
+            if (searchDate == "Every Time") {
               return value;
             } else if (searchDate == "Today") {
               {

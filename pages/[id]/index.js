@@ -70,7 +70,10 @@ const SongPage = ({ song }) => {
   };
 
   return (
-    <div key={song._id} className="contain md:mt-32">
+    <div
+      key={song._id}
+      className="contain md:mt-32 md:px-0 px-12 mt-28 md:mb-0 mb-16"
+    >
       <div className="h-screen">
         <div className="flex flex-col py-2 mb-5">
           <h1 className="text-xl">
@@ -87,14 +90,14 @@ const SongPage = ({ song }) => {
           </p>
         </div>
         <div>
-          <div className="flex md:flex-row flex-col justify-between ">
+          <div className="flex md:flex-row flex-col justify-between items-center">
             <div className="">
               <img
                 src={song.image_url}
-                className="max-w-[185px] float-left md:mr-4"
+                className="max-w-[250px] float-left md:mr-4 mr-7"
               />
-              <p className="md:mx-4">{song.description}</p>
-              <div className="mt-7 space-x-10 md:mb-6">
+              <p className="md:mx-4 md:ml-6 text-left">{song.description}</p>
+              <div className="mt-7 space-x-10 md:mb-6 mb-4 ">
                 <div className="px-4 max-w-md text-left"></div>
                 <Link href="/[id]/edit" as={`/${song._id}/edit`}>
                   <button className="edit-button">Edit</button>
@@ -106,9 +109,9 @@ const SongPage = ({ song }) => {
 
               {message && <p>{message}</p>}
             </div>
-            <div className="">
+            <div className="md:mb-0 mb-32">
               <ReactPlayer
-                width="520px"
+                width="420px"
                 muted={true}
                 controls
                 url={song.song_url}
