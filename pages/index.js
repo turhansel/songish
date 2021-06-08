@@ -58,7 +58,7 @@ const Home = ({ songs }) => {
                 onChange={(e) => {
                   setSearchTerm(e.target.value);
                 }}
-                className="form-input rounded-full md:w-full"
+                className="form-input rounded-full md:w-full w-[77%] px-3"
                 placeholder="Search Song..."
               />
               <select
@@ -69,7 +69,7 @@ const Home = ({ songs }) => {
                 onChange={(e) => {
                   setSearchDate(e.target.value);
                 }}
-                className="form-input rounded-full md:w-full mt-3 w-[67%]"
+                className="form-input rounded-full md:w-full mt-3 w-[77%] px-3"
               >
                 <option>Everything</option>
                 <option>Today</option>

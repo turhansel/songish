@@ -194,7 +194,7 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
                     value={form.difficulty}
                     onChange={handleChange}
                     required
-                    className="form-input "
+                    className="form-input md:w-[195px]"
                   >
                     {difficulties.map((difficult, index) => (
                       <option key={index}>{difficult}</option>
@@ -212,7 +212,7 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
                     value={form.category}
                     onChange={handleChange}
                     required
-                    className="form-input"
+                    className="form-input md:w-[195px]"
                   >
                     {categories.map((category, index) => (
                       <option key={index}>{category}</option>
