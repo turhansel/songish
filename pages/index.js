@@ -80,9 +80,6 @@ const Home = ({ songs }) => {
           </div>
         </div>
       </div>
-      {/* {songs.map((song) => (
-        <p>{song.duration}</p>
-      ))} */}
       <div
         className="h-full md:px-12 my-8 mx-auto max-w-7xl grid sm:grid-cols-2 
       md:grid-cols-4 grid-cols-1justify-center items-center"
@@ -113,9 +110,6 @@ const Home = ({ songs }) => {
                 return yesterday < moment(value.updatedAt).calendar();
               }
             } else if (searchDate == "This Week") {
-              {
-                /* console.log(value.duration)), */
-              }
               return thisWeek < moment(value.updatedAt).calendar();
             } else if (searchDate == "This Month") {
               return thisMonth < moment(value.updatedAt).calendar();

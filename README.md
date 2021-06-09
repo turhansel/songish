@@ -2,7 +2,7 @@
 
 ## I developed a FullStack project for Fullstack Challenge Step 2.
 
-**Song** is an application that allows users to add their songs' information (e.g., title, artist name, difficulty, category, imageurl, songurl, description and date). They can also delete it or edit it anytime.
+**Song** is an application that allows users to add their songs information (e.g., title, artist name, difficulty, category, imageurl, songurl, description and date). They can also delete it or edit it anytime.
 
 ### I used NextJS which is React Framework for SSR
 
@@ -50,6 +50,8 @@ yarn dev
 ```
 
 Your app should be up and running on [http://localhost:3000](http://localhost:3000)
+If you want to see the database in local you can go 'api/songs' [http://localhost:3000/api/songs](http://localhost:3000/api/songs)
+To see database in production [https://song-app-fullstack.vercel.app/api/songs](https://song-app-fullstack.vercel.app/api/songs)
 
 # Actually, I recommend you to go to the link I gave you to see the performance. [Song-App-Fullstack](https://song-app-fullstack.vercel.app/)
 
