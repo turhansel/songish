@@ -13,11 +13,11 @@
     "@ramonak/react-progress-bar": "^3.1.0",
     "babel-plugin-superjson-next": "^0.3.0",
     "moment": "^2.29.1",
-    "mongoose": "^5.9.13",
+    "mongoose": "^5.12.13",
     "next": "latest",
-    "npm": "^7.13.0",
-    "react": "^16.14.0",
-    "react-dom": "^16.13.1",
+    "npm": "^7.16.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-player": "^2.9.0",
     "react-reveal": "^1.2.2",
     "react-tilt": "^0.1.4",
@@ -27,8 +27,8 @@
   "license": "MIT",
   "devDependencies": {
     "@tailwindcss/jit": "^0.1.18",
-    "autoprefixer": "^10.2.5",
+    "autoprefixer": "^10.2.6",
     "postcss": "^8.2.15",
-    "tailwindcss": "^2.1.2"
+    "tailwindcss": "^2.1.4"
   }
 }

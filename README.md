@@ -51,6 +51,8 @@ yarn dev
 
 Your app should be up and running on [http://localhost:3000](http://localhost:3000)
 
+# Actually, I recommend you to go to the link I gave you to see the performance. [Song-App-Fullstack](https://song-app-fullstack.vercel.app/)
+
 ### Thanks for helping me explore myself. This challenge has been very instructive for me. I learned about myself what i can do and what i cant.
 
 ### Thank you for taking the time to assessment.
