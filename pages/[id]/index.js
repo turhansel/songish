@@ -86,7 +86,7 @@ const SongPage = ({ song }) => {
           <h2 className="text-xl pt-3 text-gray-700">{song.name}</h2>
           <h3 className="text-md pt-1">by {song.artist_name}</h3>
           <p className="text-gray-500 text-sm md:mt-2">
-            {moment(song.date).calendar()}
+            PUBLISHED DATE {moment(song.date).calendar()}
           </p>
         </div>
         <div>

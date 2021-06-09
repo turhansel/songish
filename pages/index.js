@@ -122,8 +122,8 @@ const Home = ({ songs }) => {
             }
           })
           .map((song) => (
-            <Fade top duration={1000} distance="40px">
-              <Tilt options={{ max: 25 }} key={song._id}>
+            <Fade top duration={1000} distance="40px" key={song._id}>
+              <Tilt options={{ max: 25 }}>
                 <div
                   key={song._id}
                   className="rounded-xl overflow-hidden shadow-xl my-2 

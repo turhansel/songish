@@ -1,48 +1,41 @@
-# MongoDB and Mongoose with Next.js
+# Song App Fullstack
 
-This example shows how you can use a MongoDB database to support your Next.js application.
+## I developed a FullStack project for Fullstack Challenge Step 2.
 
-**Pet** is an application that allows users to add their pets' information (e.g., name, owner's name, diet, age, dislikes, likes, and photo). They can also delete it or edit it anytime.
+**Song** is an application that allows users to add their songs' information (e.g., title, artist name, difficulty, category, imageurl, songurl, description and date). They can also delete it or edit it anytime.
 
-## Deploy your own
+### I used NextJS which is React Framework for SSR
 
-Once you have access to [the environment variables you'll need](#step-2-set-up-environment-variables), deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+### Tech Stack
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-mongodb-mongoose&project-name=with-mongodb-mongoose&repository-name=with-mongodb-mongoose&env=MONGODB_URI&envDescription=Required%20to%20connect%20the%20app%20with%20MongoDB&envLink=https://github.com/vercel/next.js/tree/canary/examples/with-mongodb-mongoose%23step-2-set-up-environment-variables)
+- [ReactJS](https://reactjs.org/)
+- [NextJS](https://nextjs.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+- npm packages
 
-## How to use
+## Problems which are encountered and solved
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+- Data fetching in NextJS with getStaticProps(date) => [superjson npm package](https://github.com/blitz-js/superjson)
+- Date filter today error because of date format => [momentjs npm package](https://www.npmjs.com/package/moment) <br/>
+  **_By the way_**, the date filter is based on the update date. If we go inside the song (detail page). That song now appears in the today section of the date filter. The date we entered in the form is published date. You can see the published date on the detail page.
+- react-player get song duration and played time => [react-player npm package](https://www.npmjs.com/package/react-player)
 
-```bash
-npx create-next-app --example with-mongodb-mongoose with-mongodb-mongoose-app
-# or
-yarn create next-app --example with-mongodb-mongoose with-mongodb-mongoose-app
-```
+# How to use
+
+- Actually we don't need to how to use guide because of i deployed but if you want to see development environment you can move on. I add the link on the below.
+
+- **_[Song-App-Fullstack](https://song-app-fullstack.vercel.app/)_**
 
 ## Configuration
 
 ### Step 1. Get the connection string of your MongoDB server
 
-In the case of MongoDB Atlas, it should be a string like this:
-
-```
-mongodb+srv://<username>:<password>@my-project-abc123.mongodb.net/test?retryWrites=true&w=majority
-```
-
-For more details, follow this [MongoDB Guide](https://docs.mongodb.com/guides/server/drivers/) on how to connect to MongoDB.
+We don't need for now because of i connected.
 
 ### Step 2. Set up environment variables
 
-Copy the `.env.local.example` file in this directory to `.env.local` (which will be ignored by Git):
-
-```bash
-cp .env.local.example .env.local
-```
-
-Then set each variable on `.env.local`:
-
-- `MONGODB_URI` should be the MongoDB connection string you got from step 1.
+We don't need for now because of i set up.
 
 ### Step 3. Run Next.js in development mode
 
@@ -56,20 +49,8 @@ yarn install
 yarn dev
 ```
 
-Your app should be up and running on [http://localhost:3000](http://localhost:3000)! If it doesn't work, post on [GitHub discussions](https://github.com/vercel/next.js/discussions).
+Your app should be up and running on [http://localhost:3000](http://localhost:3000)
 
-## Deploy on Vercel
+### Thanks for helping me explore myself. This challenge has been very instructive for me. I learned about myself what i can do and what i cant.
 
-You can deploy this app to the cloud with [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-#### Deploy Your Local Project
-
-To deploy your local project to Vercel, push it to GitHub/GitLab/Bitbucket and [import to Vercel](https://vercel.com/import/git?utm_source=github&utm_medium=readme&utm_campaign=next-example).
-
-**Important**: When you import your project on Vercel, make sure to click on **Environment Variables** and set them to match your `.env.local` file.
-
-#### Deploy from Our Template
-
-Alternatively, you can deploy using our template by clicking on the Deploy button below.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-mongodb-mongoose&project-name=with-mongodb-mongoose&repository-name=with-mongodb-mongoose&env=MONGODB_URI&envDescription=Required%20to%20connect%20the%20app%20with%20MongoDB&envLink=https://github.com/vercel/next.js/tree/canary/examples/with-mongodb-mongoose%23step-2-set-up-environment-variables)
+### Thank you for taking the time to assessment.

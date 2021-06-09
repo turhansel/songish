@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Fragment } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Disclosure } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 const navigation = ["Dashboard", "Team", "Projects", "Calendar", "Reports"];
 
@@ -31,7 +31,7 @@ const Header = () => {
                         />
                       </div>
                       <div className="hidden md:block ">
-                        {/* <h1 className="text-4xl italic">Fretello</h1> */}
+                        <h1 className="text-4xl italic">Fretello</h1>
                       </div>
                     </div>
                   </a>
