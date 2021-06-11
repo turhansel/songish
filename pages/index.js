@@ -28,11 +28,12 @@ const Home = ({ songs }) => {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [searchDate, setSearchDate] = useState("Every Time");
-  const [totalDuration, setTotalDuration] = useState("");
 
   const yesterday = moment().subtract(48, "hours").calendar(); // IDK how i fix this bug :D
+  // const yesterday = moment().subtract(24, "hours").format("LLL"); // IDK how i fixed this bug :D
   const thisWeek = moment().subtract(7, "days").calendar();
   const thisMonth = moment().subtract(1, "months").calendar();
+  console.log(yesterday);
 
   return (
     <div className="md:mt-28 sm:mt-20">

@@ -8,7 +8,6 @@ import { Fragment } from "react";
 function MyApp({ Component, pageProps }) {
   return (
     <Fragment>
-      {/* bg-[#dfe9f2] bg-opacity-50 */}
       <Head>
         <title>Song Catalog</title>
       </Head>
