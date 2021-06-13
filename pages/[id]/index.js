@@ -5,8 +5,9 @@ import dbConnect from "../../utils/dbConnect";
 import Song from "../../models/Song";
 import ReactPlayer from "react-player";
 import moment from "moment";
+import useSWR from "swr";
 
-const SongPage = ({ song, artist_name }) => {
+const SongPage = ({ song }) => {
   const contentType = "application/json";
   const router = useRouter();
   const [message, setMessage] = useState("");
@@ -36,8 +37,6 @@ const SongPage = ({ song, artist_name }) => {
         progress: progress,
       }),
     });
-
-    const { data } = await res.json();
   };
 
   const putDuration = async (duration) => {
@@ -53,8 +52,6 @@ const SongPage = ({ song, artist_name }) => {
         duration: duration,
       }),
     });
-
-    const { data } = await res.json();
   };
 
   const [duration, setDuration] = useState([]);

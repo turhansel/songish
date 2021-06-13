@@ -2,7 +2,6 @@ import Head from "next/head";
 import { Fragment, useState } from "react";
 import { useRouter } from "next/router";
 import { mutate } from "swr";
-import moment from "moment";
 
 import Lottie from "../components/Lottie";
 
