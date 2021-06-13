@@ -6,10 +6,11 @@ import Song from "../../models/Song";
 import ReactPlayer from "react-player";
 import moment from "moment";
 
-const SongPage = ({ song }) => {
+const SongPage = ({ song, artist_name }) => {
   const contentType = "application/json";
   const router = useRouter();
   const [message, setMessage] = useState("");
+
   const handleDelete = async () => {
     const songID = router.query.id;
     try {
@@ -120,6 +121,9 @@ const SongPage = ({ song }) => {
               />
             </div>
           </div>
+          <Link href="/[id]/[id]" as={`/${song._id}/${song.artist_name}`}>
+            <a>tikla bakam</a>
+          </Link>
         </div>
       </div>
     </div>
