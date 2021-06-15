@@ -1,6 +1,6 @@
 # Song App Fullstack
 
-## I developed a FullStack project for Fullstack Challenge Step 2.
+## I developed a FullStack project for Fullstack Challenge Step 3.
 
 **Song** is an application that allows users to add their songs information (e.g., title, artist name, difficulty, category, imageurl, songurl, description and date). They can also delete it or edit it anytime.
 
@@ -53,7 +53,9 @@ yarn dev
 - If you want to see the database in local you can go 'api/songs' [http://localhost:3000/api/songs](http://localhost:3000/api/songs)
 - To see database in production [https://song-app-fullstack.vercel.app/api/songs](https://song-app-fullstack.vercel.app/api/songs)
 
+
 # Actually, I recommend you to go to the link I gave you to see the performance. [Song-App-Fullstack](https://song-app-fullstack.vercel.app/)
+# If you want to see the biography of the artist in coding challenge for step 3, you should click the more information button on the detail page. I fetched this data from [https://www.theaudiodb.com/api_guide.php](https://www.theaudiodb.com/api_guide.php)
 
 ### Thanks for helping me explore myself. This challenge has been very instructive for me. I learned about myself what i can do and what i cant.
 
