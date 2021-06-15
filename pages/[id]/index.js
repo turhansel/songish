@@ -138,10 +138,10 @@ const SongPage = ({ song }) => {
               <>
                 <Disclosure.Button
                   className="flex justify-between w-full px-4 py-2 text-sm font-medium text-left
-                 text-purple-900 bg-purple-100 rounded-lg hover:bg-purple-200 
+                   bg-indigo-50 rounded-lg hover:bg-indigo-200 
                  focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
                 >
-                  <span className="text-lg">
+                  <span className="text-lg bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-red-400">
                     Do you want more information about the artist?
                   </span>
                   <ChevronUpIcon
@@ -150,10 +150,10 @@ const SongPage = ({ song }) => {
                     } w-5 h-5 text-purple-500`}
                   />
                 </Disclosure.Button>
-                <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm  text-gray-700 border rounded-lg shadow-xl hover:shadow-md bg-indigo-50">
+                <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm  text-gray-600 border rounded-lg shadow-xl hover:shadow-md bg-indigo-50 hover:bg-indigo-100 ">
                   {data.artists && data.artists !== null > 0 ? (
                     data.artists.map((artist) => (
-                      <p className="mb-8" key={artist.idArtist}>
+                      <p className="mb-8 text-[16px]" key={artist.idArtist}>
                         {artist.strBiographyEN}
                       </p>
                     ))

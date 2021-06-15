@@ -30,7 +30,7 @@ const Home = ({ songs }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchDate, setSearchDate] = useState("Every Time");
 
-  const yesterday = moment().subtract(48, "hours").calendar(); // IDK how i fix this bug :D
+  const yesterday = moment().subtract(24, "hours").format("LLL"); // IDK how i fixed this bug :D
   const thisWeek = moment().subtract(7, "days").calendar();
   const thisMonth = moment().subtract(1, "months").calendar();
 
@@ -107,7 +107,7 @@ const Home = ({ songs }) => {
               return value;
             } else if (searchDate == "Today") {
               {
-                return yesterday < moment(value.updatedAt).calendar();
+                return yesterday < moment(value.updatedAt).format("LLL");
               }
             } else if (searchDate == "This Week") {
               return thisWeek < moment(value.updatedAt).calendar();
