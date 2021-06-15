@@ -2,7 +2,7 @@ import Head from "next/head";
 import { Fragment, useState } from "react";
 import { useRouter } from "next/router";
 import { mutate } from "swr";
-
+import Footer from "./Footer";
 import Lottie from "../components/Lottie";
 
 const Form = ({ formId, songForm, forNewSong = true }) => {
@@ -283,6 +283,7 @@ const Form = ({ formId, songForm, forNewSong = true }) => {
           </div>
         </div>
       </div>
+      <Footer />
     </Fragment>
   );
 };

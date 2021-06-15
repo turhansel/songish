@@ -7,6 +7,7 @@ import Lottie from "../components/Lottie";
 import ProgressBar from "@ramonak/react-progress-bar";
 import moment from "moment";
 import { Fade } from "react-reveal";
+import Footer from "../components/Footer";
 
 const Home = ({ songs }) => {
   function format(time) {
@@ -173,6 +174,7 @@ const Home = ({ songs }) => {
             </Fade>
           ))}
       </div>
+      <Footer />
     </div>
   );
 };

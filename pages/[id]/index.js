@@ -93,16 +93,6 @@ const SongPage = ({ song }) => {
         // console.log(data.artists[0].strMood);
       });
   }, []);
-  // console.log(data);
-  // const artistInfo = async () => {
-  //   const result = await axios.get(
-  //     `https://www.theaudiodb.com/api/v1/json/1/search.php?s=${song.artist_name}`
-  //   );
-
-  //   const mydata = JSON.stringify(result);
-
-  //   setData(mydata);
-  // };
 
   return (
     <div
@@ -141,8 +131,6 @@ const SongPage = ({ song }) => {
                   Delete
                 </button>
               </div>
-
-              {message && <p>{message}</p>}
             </div>
             <div className="md:mb-0 mb-32">
               <ReactPlayer
@@ -154,11 +142,29 @@ const SongPage = ({ song }) => {
                 onProgress={handleProgress}
               />
             </div>
-            {/* <div>{data && <p>{data.artists[0].strMood}</p>}</div> */}
-            {data && data.artists.map((artist) => <p>{artist.strStyle}</p>)}
           </div>
         </div>
+        <div>
+          <Disclosure>
+            {({ open }) => (
+              <>
+                <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-sm font-medium text-left text-purple-900 bg-purple-100 rounded-lg hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                  <span className="text-lg text-red-600">
+                    More information about the artist?
+                  </span>
+                </Disclosure.Button>
+                <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                  {data &&
+                    data.artists.map((artist) => (
+                      <p>{artist.strBiographyEN}</p>
+                    ))}
+                </Disclosure.Panel>
+              </>
+            )}
+          </Disclosure>
+        </div>
       </div>
+      {message && <p>{message}</p>}
     </div>
   );
 };
