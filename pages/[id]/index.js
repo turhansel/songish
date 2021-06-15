@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import dbConnect from "../../utils/dbConnect";
 import Song from "../../models/Song";
 import ReactPlayer from "react-player";
 import moment from "moment";
-import useSWR from "swr";
 
 const SongPage = ({ song }) => {
   const contentType = "application/json";
@@ -66,6 +66,19 @@ const SongPage = ({ song }) => {
     setProgress(parseInt(progress.played * 100));
     putProgress(progress);
   };
+
+  const [data, setData] = useState([]);
+
+  useEffect(async () => {
+    const result = await axios(
+      `https://www.theaudiodb.com/api/v1/json/1/search.php?s=${song.artist_name}`
+    );
+    // const myJSON = JSON.stringify(result);
+    // const mydata = JSON.stringify(result);
+    setData(result.data);
+  });
+
+  console.log(data);
 
   return (
     <div
