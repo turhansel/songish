@@ -1,5 +1,4 @@
 import { useState, useEffect, Fragment } from "react";
-import axios from "axios";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import dbConnect from "../../utils/dbConnect";
@@ -69,17 +68,8 @@ const SongPage = ({ song }) => {
     putProgress(progress);
   };
 
-  let [isOpen, setIsOpen] = useState(true);
+  const [data, setData] = useState("");
 
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  const [data, setData] = useState(null);
   useEffect(() => {
     fetch(
       `https://www.theaudiodb.com/api/v1/json/1/search.php?s=${encodeURIComponent(
@@ -89,8 +79,6 @@ const SongPage = ({ song }) => {
       .then((res) => res.json())
       .then((data) => {
         setData(data);
-        data.artists[0].strMood;
-        // console.log(data.artists[0].strMood);
       });
   }, []);
 
@@ -115,7 +103,7 @@ const SongPage = ({ song }) => {
           </p>
         </div>
         <div>
-          <div className="flex md:flex-row flex-col justify-between items-center">
+          <div className="flex md:flex-row flex-col justify-between items-center mb-3">
             <div className="">
               <img
                 src={song.image_url}
@@ -132,7 +120,7 @@ const SongPage = ({ song }) => {
                 </button>
               </div>
             </div>
-            <div className="md:mb-0 mb-32">
+            <div>
               <ReactPlayer
                 width="420px"
                 muted={true}
@@ -144,20 +132,34 @@ const SongPage = ({ song }) => {
             </div>
           </div>
         </div>
-        <div>
+        <div className="md:mt-8 mb-3">
           <Disclosure>
             {({ open }) => (
               <>
-                <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-sm font-medium text-left text-purple-900 bg-purple-100 rounded-lg hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                  <span className="text-lg text-red-600">
-                    More information about the artist?
+                <Disclosure.Button
+                  className="flex justify-between w-full px-4 py-2 text-sm font-medium text-left
+                 text-purple-900 bg-purple-100 rounded-lg hover:bg-purple-200 
+                 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
+                >
+                  <span className="text-lg">
+                    Do you want more information about the artist?
                   </span>
+                  <ChevronUpIcon
+                    className={`${
+                      open ? "transform rotate-180" : ""
+                    } w-5 h-5 text-purple-500`}
+                  />
                 </Disclosure.Button>
-                <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                  {data &&
+                <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm  text-gray-700 border rounded-lg shadow-xl hover:shadow-md bg-indigo-50">
+                  {!data == null ? (
                     data.artists.map((artist) => (
-                      <p>{artist.strBiographyEN}</p>
-                    ))}
+                      <p className="mb-8" key={artist.idArtist}>
+                        {artist.strBiographyEN}
+                      </p>
+                    ))
+                  ) : (
+                    <p>No information about the artist was found.</p>
+                  )}
                 </Disclosure.Panel>
               </>
             )}
