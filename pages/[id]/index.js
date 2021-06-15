@@ -1,4 +1,4 @@
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import dbConnect from "../../utils/dbConnect";
@@ -151,14 +151,14 @@ const SongPage = ({ song }) => {
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm  text-gray-700 border rounded-lg shadow-xl hover:shadow-md bg-indigo-50">
-                  {!data == null ? (
+                  {data.artists && data.artists !== null > 0 ? (
                     data.artists.map((artist) => (
                       <p className="mb-8" key={artist.idArtist}>
                         {artist.strBiographyEN}
                       </p>
                     ))
                   ) : (
-                    <p>No information about the artist was found.</p>
+                    <p>No information was found about the artist.</p>
                   )}
                 </Disclosure.Panel>
               </>
