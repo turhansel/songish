@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -6,6 +6,8 @@ import dbConnect from "../../utils/dbConnect";
 import Song from "../../models/Song";
 import ReactPlayer from "react-player";
 import moment from "moment";
+import { Disclosure } from "@headlessui/react";
+import { ChevronUpIcon } from "@heroicons/react/solid";
 
 const SongPage = ({ song }) => {
   const contentType = "application/json";
@@ -67,18 +69,40 @@ const SongPage = ({ song }) => {
     putProgress(progress);
   };
 
-  const [data, setData] = useState([]);
+  let [isOpen, setIsOpen] = useState(true);
 
-  useEffect(async () => {
-    const result = await axios(
-      `https://www.theaudiodb.com/api/v1/json/1/search.php?s=${song.artist_name}`
-    );
-    // const myJSON = JSON.stringify(result);
-    // const mydata = JSON.stringify(result);
-    setData(result.data);
-  });
+  function closeModal() {
+    setIsOpen(false);
+  }
 
-  console.log(data);
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    fetch(
+      `https://www.theaudiodb.com/api/v1/json/1/search.php?s=${encodeURIComponent(
+        song.artist_name
+      )}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+        data.artists[0].strMood;
+        // console.log(data.artists[0].strMood);
+      });
+  }, []);
+  // console.log(data);
+  // const artistInfo = async () => {
+  //   const result = await axios.get(
+  //     `https://www.theaudiodb.com/api/v1/json/1/search.php?s=${song.artist_name}`
+  //   );
+
+  //   const mydata = JSON.stringify(result);
+
+  //   setData(mydata);
+  // };
 
   return (
     <div
@@ -130,10 +154,9 @@ const SongPage = ({ song }) => {
                 onProgress={handleProgress}
               />
             </div>
+            {/* <div>{data && <p>{data.artists[0].strMood}</p>}</div> */}
+            {data && data.artists.map((artist) => <p>{artist.strStyle}</p>)}
           </div>
-          <Link href="/[id]/[id]" as={`/${song._id}/${song.artist_name}`}>
-            <a>tikla bakam</a>
-          </Link>
         </div>
       </div>
     </div>

@@ -14,7 +14,7 @@ const Header = () => {
     <Fragment>
       <Disclosure
         as="nav"
-        className="bg-indigo-100 backdrop-filter drop-shadow-sm  fixed w-full blur-lg top-0 z-10 md:mb-10"
+        className="bg-indigo-100 backdrop-filter drop-shadow-sm fixed w-full blur-lg top-0 z-10 md:mb-10"
       >
         {({ open }) => (
           <>
