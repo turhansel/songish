@@ -25,13 +25,10 @@ const Header = () => {
                     <div className="flex items-center space-x-6">
                       <div className="flex-shrink-0">
                         <img
-                          className="h-16 w-16 md:w-20"
-                          src="https://fretello.com/assets/images/icons/FretelloIcon.svg"
+                          className="h-20 w-40 md:w-64 md:h-32"
+                          src="/songish-logo.png"
                           alt="Workflow"
                         />
-                      </div>
-                      <div className="hidden md:block ">
-                        <h1 className="text-4xl italic">Fretello</h1>
                       </div>
                     </div>
                   </a>

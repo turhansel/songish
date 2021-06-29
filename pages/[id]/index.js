@@ -90,7 +90,7 @@ const SongPage = ({ song }) => {
       <div className="h-screen">
         <div className="flex flex-col py-2 mb-5">
           <h1 className="text-xl">
-            <span className="text-gray-600">Fretello </span>
+            <span className="text-gray-600">Songish</span>
             <span> &gt; </span>
             <span className="text-gray-600">Songs </span>
             <span>&gt; </span>
