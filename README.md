@@ -1,41 +1,53 @@
-# Song App Fullstack
+# Songish
 
-## I developed a FullStack project for Fullstack Challenge Step 3.
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/turhansel/songish/master/LICENSE?token=APGVPHQ3ZPUC5OGES4KUTQLA3SZKE)
 
-**Song** is an application that allows users to add their songs information (e.g., title, artist name, difficulty, category, imageurl, songurl, description and date). They can also delete it or edit it anytime.
+## Deploy your own
+
+Once you have access to [the environment variables you'll need](#step-2-set-up-environment-variables), deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/turhansel/songish&project-name=songish&repository-name=songish&env=MONGODB_URI&envDescription=Required%20to%20connect%20the%20app%20with%20MongoDB&envLink=https://github.com/vercel/next.js/tree/canary/examples/songish%23step-2-set-up-environment-variables)
+
+## I developed a FullStack project to improve myself.
+
+**Songish** is an application that allows users to add their songs information (e.g., title, artist name, difficulty, category, imageurl, songurl, description and date). They can also delete it or edit it anytime.
 
 ### I used NextJS which is React Framework for SSR
 
 ### Tech Stack
 
-- [ReactJS](https://reactjs.org/)
 - [NextJS](https://nextjs.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
 - npm packages
 
-## Problems which are encountered and solved
+## How to use
 
-- Data fetching in NextJS with getStaticProps(date) => [superjson npm package](https://github.com/blitz-js/superjson)
-- Date filter today error because of date format => [momentjs npm package](https://www.npmjs.com/package/moment) <br/>
-  **_By the way_**, the date filter is based on the update date. If we go inside the song (detail page). That song now appears in the today section of the date filter. The date we entered in the form is published date. You can see the published date on the detail page.
-- react-player get song duration and played time => [react-player npm package](https://www.npmjs.com/package/react-player)
-
-# How to use
-
-- Actually we don't need to how to use guide because of i deployed but if you want to see development environment you can move on. I add the link on the below.
-
-- **_[Song-App-Fullstack](https://song-app-fullstack.vercel.app/)_**
+- **_[Songish](https://songish.vercel.app/)_**
 
 ## Configuration
 
 ### Step 1. Get the connection string of your MongoDB server
 
-We don't need for now because of i connected.
+In the case of MongoDB Atlas, it should be a string like this:
+
+```
+mongodb+srv://<username>:<password>@my-project-abc123.mongodb.net/test?retryWrites=true&w=majority
+```
+
+For more details, follow this [MongoDB Guide](https://docs.mongodb.com/guides/server/drivers/) on how to connect to MongoDB.
 
 ### Step 2. Set up environment variables
 
-We don't need for now because of i set up.
+Copy the `.env.local.example` file in this directory to `.env.local` (which will be ignored by Git):
+
+```bash
+cp .env.local.example .env.local
+```
+
+Then set each variable on `.env.local`:
+
+- `MONGODB_URI` should be the MongoDB connection string you got from step 1.
 
 ### Step 3. Run Next.js in development mode
 
@@ -50,13 +62,7 @@ yarn dev
 ```
 
 - Your app should be up and running on [http://localhost:3000](http://localhost:3000)
-- If you want to see the database in local you can go 'api/songs' [http://localhost:3000/api/songs](http://localhost:3000/api/songs)
-- To see database in production [https://song-app-fullstack.vercel.app/api/songs](https://song-app-fullstack.vercel.app/api/songs)
+- If you want to see the database in local you can go [http://localhost:3000/api/songs](http://localhost:3000/api/songs)
+- To see database in production [https://song-app-fullstack.vercel.app/api/songs](https://songish.vercel.app/api/songs)
 
-
-# Actually, I recommend you to go to the link I gave you to see the performance. [Song-App-Fullstack](https://song-app-fullstack.vercel.app/)
-# If you want to see the biography of the artist in coding challenge for step 3, you should click the more information button on the detail page. I fetched this data from [https://www.theaudiodb.com/api_guide.php](https://www.theaudiodb.com/api_guide.php)
-
-### Thanks for helping me explore myself. This challenge has been very instructive for me. I learned about myself what i can do and what i cant.
-
-### Thank you for taking the time to assessment.
+### If you want to see the biography of the artist, you should click the more information button on the detail page. I fetched this data from [https://www.theaudiodb.com/api_guide.php](https://www.theaudiodb.com/api_guide.php)
