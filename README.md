@@ -1,6 +1,6 @@
 # Songish
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/turhansel/songish/master/LICENSE?token=APGVPHQ3ZPUC5OGES4KUTQLA3SZKE)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/turhansel/songish/blob/master/LICENSE)
 
 ## Deploy your own
 
