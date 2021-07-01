@@ -31,4 +31,7 @@
   .delete-button {
     @apply text-gray-700  bg-gradient-to-r from-purple-400 to-red-400 rounded-lg  p-3;
   }
+  .title {
+    @apply md:text-4xl text-sm;
+  }
 }

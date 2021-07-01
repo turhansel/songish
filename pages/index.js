@@ -30,15 +30,16 @@ const Home = ({ songs }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchDate, setSearchDate] = useState("Every Time");
 
-  const yesterday = moment().subtract(24, "hours").format("LLL"); // IDK how i fixed this bug :D
+  // const yesterday = moment().subtract(24, "hours").format("LLL");
+  const yesterday = moment().subtract(48, "hours").calendar(); // IDK how i fixed this bug :D
   const thisWeek = moment().subtract(7, "days").calendar();
   const thisMonth = moment().subtract(1, "months").calendar();
 
   return (
-    <div className="md:mt-28 sm:mt-20">
-      <div className="bg-indigo-100 w-screen h-[45vh] bg-no-repeat bg-cover bg-center flex justify-center items-center bg-opacity-60">
+    <div className="md:mt-28">
+      <div className="bg-indigo-100  w-screen h-[45vh] bg-no-repeat bg-cover bg-center flex justify-center items-center bg-opacity-60">
         <div className="flex items-center space-y-7 justify-evenly">
-          <div className="">
+          <div>
             <Lottie
               design={{
                 width: responsive,
@@ -48,8 +49,8 @@ const Home = ({ songs }) => {
             />
           </div>
           <div className="flex flex-col space-y-3 sm:block">
-            <div>
-              <h2 className="text-gray-600 text-4xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-green-400 font-bold">
+            <div className="">
+              <h2 className="text-gray-600 text-center font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-green-400 title">
                 Learn the songs you love
               </h2>
             </div>
@@ -107,7 +108,7 @@ const Home = ({ songs }) => {
               return value;
             } else if (searchDate == "Today") {
               {
-                return yesterday < moment(value.updatedAt).format("LLL");
+                return yesterday < moment(value.updatedAt).calendar();
               }
             } else if (searchDate == "This Week") {
               return thisWeek < moment(value.updatedAt).calendar();
@@ -119,7 +120,6 @@ const Home = ({ songs }) => {
             <Fade top duration={1000} distance="40px" key={song._id}>
               <Tilt options={{ max: 25 }}>
                 <div
-                  key={song._id}
                   className="rounded-xl overflow-hidden shadow-xl my-2 
                 p-4  flex flex-col justify-center items-center bg-indigo-50
                 sm:flex-col hover:shadow-md md:mx-4 mx-12 "
@@ -186,6 +186,7 @@ export async function getServerSideProps() {
   const songs = result.map((doc) => {
     const song = doc.toObject();
     song._id = song._id.toLocaleString();
+
     return song;
   });
 

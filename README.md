@@ -2,17 +2,15 @@
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/turhansel/songish/blob/master/LICENSE)
 
-## Deploy your own
-
-Once you have access to [the environment variables you'll need](#step-2-set-up-environment-variables), deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/turhansel/songish&project-name=songish&repository-name=songish&env=MONGODB_URI&envDescription=Required%20to%20connect%20the%20app%20with%20MongoDB&envLink=https://github.com/vercel/next.js/tree/canary/examples/songish%23step-2-set-up-environment-variables)
-
 ## I developed a FullStack project to improve myself.
 
-**Songish** is an application that allows users to add their songs information (e.g., title, artist name, difficulty, category, imageurl, songurl, description and date). They can also delete it or edit it anytime.
+**Songish** is an application that allows users to add their songs information (e.g., title, artist name, difficulty, category, imageurl, songurl, description and date). They can also delete it or edit it anytime. And when you listen to the song on the detail page, the process on the main page appears.
 
 ### I used NextJS which is React Framework for SSR
+
+## **_[Songish](https://songish.vercel.app/)_**
+
+![ScreenShot](/public/screenshot.png)
 
 ### Tech Stack
 
@@ -21,9 +19,7 @@ Once you have access to [the environment variables you'll need](#step-2-set-up-e
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
 - npm packages
 
-## How to use
-
-- **_[Songish](https://songish.vercel.app/)_**
+# How to use
 
 ## Configuration
 
@@ -66,3 +62,11 @@ yarn dev
 - To see database in production [https://song-app-fullstack.vercel.app/api/songs](https://songish.vercel.app/api/songs)
 
 ### If you want to see the biography of the artist, you should click the more information button on the detail page. I fetched this data from [https://www.theaudiodb.com/api_guide.php](https://www.theaudiodb.com/api_guide.php)
+
+<br/>
+
+## Deploy your own
+
+Once you have access to [the environment variables you'll need](#step-2-set-up-environment-variables), deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/turhansel/songish&project-name=songish&repository-name=songish&env=MONGODB_URI&envDescription=Required%20to%20connect%20the%20app%20with%20MongoDB&envLink=https://github.com/vercel/next.js/tree/canary/examples/songish%23step-2-set-up-environment-variables)
