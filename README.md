@@ -17,7 +17,6 @@
 - [NextJS](https://nextjs.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-- npm packages
 
 # How to use
 
