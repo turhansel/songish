@@ -20,7 +20,7 @@
     "react-player": "^2.9.0",
     "react-reveal": "^1.2.2",
     "react-tilt": "^0.1.4",
-    "superjson": "^1.7.4",
+    "superjson": "^1.8.1",
     "swr": "0.2.2"
   },
   "license": "MIT",
